@@ -14,7 +14,7 @@ class Pregunta{
   //----------------------------------------------
 
   /// Constructor que recibe una pregunta de tipo String y un boolean sobre si la respuesta es corrrecta o no
-  Question(pPregunta,pRespuesta)
+  Pregunta(pPregunta,pRespuesta)
   {
     pregunta = pPregunta;
     respuesta = pRespuesta;
