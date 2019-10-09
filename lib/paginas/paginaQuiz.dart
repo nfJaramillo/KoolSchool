@@ -74,7 +74,6 @@ class PaginaEstadoQuiz extends State<PaginaQuiz> {
            
             preguntaActual = quiz.siguientePregunta;
             this.setState((){
-              print(preguntaActual.pregunta);
               overlayVisible = false;
               textoDeLaPregunta = preguntaActual.pregunta;
               numeroDePreguntaActual = quiz.darNumeroDePreguntaActual;

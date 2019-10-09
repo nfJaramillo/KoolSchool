@@ -7,21 +7,15 @@ Text texto;
 PreguntaUI ( Text pTexto)
 {
   texto = pTexto;
+  print(texto);
 }
 
 @override
-  State createState() => new PreguntaEstado(texto);
+  State createState() => new PreguntaEstado();
   
 }
 
-class PreguntaEstado extends State<PreguntaUI>{
-
-Text texto;
-
-PreguntaEstado ( Text pTexto)
-{
-  texto = pTexto;
-}
+class PreguntaEstado extends State<PreguntaUI>  with SingleTickerProviderStateMixin{
 
   
   @override
@@ -31,7 +25,7 @@ PreguntaEstado ( Text pTexto)
     child: new Padding(
       padding: new EdgeInsets.symmetric(vertical: 30),
       child: new Center(
-        child: FittedBox(fit: BoxFit.cover, child: new Text(texto.data,style: TextStyle(fontSize: 30))),
+        child: FittedBox(fit: BoxFit.cover, child: new Text(widget.texto.data,style: TextStyle(fontSize: 30))),
       ),
     )
     );
