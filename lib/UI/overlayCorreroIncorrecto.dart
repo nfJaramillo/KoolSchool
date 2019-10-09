@@ -34,7 +34,9 @@ class CorrectWrongOverlayState extends State<OverlayCorreroIncorrecto> with Sing
   
   @override
   Widget build(BuildContext context) {
-    return new Material(
+    return new Container(
+       width: 10000,
+     child: new Material(
       color: Colors.black54,
       child: new InkWell(
         onTap: () => widget._onTap(),
@@ -58,6 +60,6 @@ class CorrectWrongOverlayState extends State<OverlayCorreroIncorrecto> with Sing
           ],
         ),
       ),
-    );
+    ));
   }
 }

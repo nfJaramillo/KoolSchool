@@ -68,7 +68,7 @@ class PaginaEstadoQuiz extends State<PaginaQuiz> {
           esCorrecto, 
           () {
              
-            if(quiz.darCantidadDePreguntas == numeroDePreguntaActual){
+             if(quiz.darCantidadDePreguntas == numeroDePreguntaActual){
               null;
             }
            
