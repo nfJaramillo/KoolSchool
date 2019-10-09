@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hello_world/UI/botonUI.dart';
 import 'package:hello_world/paginas/paginaQuiz.dart';
 
 class PaginaInicial extends StatelessWidget{
@@ -10,11 +11,14 @@ class PaginaInicial extends StatelessWidget{
       child: new Column(
         mainAxisAlignment: MainAxisAlignment.center, // Centra lo de la columna en el ejer y
         children: <Widget>[
-          FittedBox(fit:BoxFit.cover, child: new Text("KoolSchool", style: TextStyle(fontSize: 100, fontWeight: FontWeight.bold, color: Colors.white))),
-          Padding(
-            padding:  EdgeInsets.all(10), // Añade espacio entre los textos
-            child: FittedBox(fit:BoxFit.cover, child: new Text("Toca para iniciar!",style: TextStyle(fontSize: 50))  ),
-           )
+           FittedBox(fit:BoxFit.cover, child: new Text("KoolSchool", style: TextStyle(fontSize: 100, fontWeight: FontWeight.bold, color: Colors.white))),
+       
+          new Row(
+            children: <Widget>[
+            new BotonUI(Colors.greenAccent, new Text("Verdadero",style: TextStyle(fontSize: 50))), // Boton verdadero
+            new BotonUI(Colors.redAccent, new Text("Falso",style: TextStyle(fontSize: 50))), // Boton falso
+                  ],
+              )
         ],
       )
     )
