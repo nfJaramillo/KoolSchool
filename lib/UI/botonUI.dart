@@ -1,4 +1,5 @@
  import 'package:flutter/material.dart';
+import 'package:hello_world/paginas/paginaQuiz.dart';
 
 class BotonUI extends StatelessWidget
  {
@@ -12,16 +13,19 @@ class BotonUI extends StatelessWidget
   /// Texto del boton
   Text texto;
 
+  VoidCallback onTap;
   //----------------------------------------------
   // CONSTRUCTOR
   //----------------------------------------------
 
   /// Contructor que recibira el color y texto del boton
-  BotonUI (Color pColor, Text pTexto)
+  BotonUI (Color pColor, Text pTexto, VoidCallback pOnTap)
   {
     elColor = pColor;
 
     texto = pTexto;
+
+    onTap = pOnTap;
   }
 
   //----------------------------------------------
@@ -31,11 +35,11 @@ class BotonUI extends StatelessWidget
   /// Metodo que construye visualmente el boton
   @override
   Widget build(BuildContext context) {
-    return new Expanded( // Boton verdadero
+    return new Expanded(
                 child: new Material(
               color: elColor,
               child: new InkWell(
-                  onTap: () => null,
+                 onTap: () => onTap(),
                   child: new Center(
                       child: new Container(
                     child: FittedBox(fit: BoxFit.cover, child: texto),

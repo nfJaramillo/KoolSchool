@@ -6,22 +6,39 @@ class PaginaInicial extends StatelessWidget{
   @override
   Widget build(BuildContext context){
     return new Material(color: Colors.yellow, // Un material es como una hoja de papel encima de la pantalla
-    child: new InkWell( // Inkweel es un widget de un boton en toda la pantalla con una animacion cool
-      onTap: () => Navigator.of(context).push(new MaterialPageRoute(builder: (BuildContext context) => new PaginaQuiz())),
-      child: new Column(
+     child: new Column(
         mainAxisAlignment: MainAxisAlignment.center, // Centra lo de la columna en el ejer y
         children: <Widget>[
+          new Padding(
+            padding:  EdgeInsets.all(50), // Añade espacio entre los textos
+            ),
            FittedBox(fit:BoxFit.cover, child: new Text("KoolSchool", style: TextStyle(fontSize: 100, fontWeight: FontWeight.bold, color: Colors.white))),
-       
-          new Row(
+            new Padding(
+            padding:  EdgeInsets.all(50), // Añade espacio entre los textos
+            ),
+            Expanded(
+              child:new Row(
             children: <Widget>[
-            new BotonUI(Colors.greenAccent, new Text("Verdadero",style: TextStyle(fontSize: 50))), // Boton verdadero
-            new BotonUI(Colors.redAccent, new Text("Falso",style: TextStyle(fontSize: 50))), // Boton falso
+             // onTap: () => Navigator.of(context).push(new MaterialPageRoute(builder: (BuildContext context) => new PaginaQuiz())),
+              new Padding(
+            padding:  EdgeInsets.all(50), // Añade espacio entre los textos
+            ),
+              new BotonUI(Colors.grey, new Text("Lecturas",style: TextStyle(fontSize: 75,fontWeight: FontWeight.bold)), () => null), 
+             new Padding(
+            padding:  EdgeInsets.all(50), // Añade espacio entre los textos
+            ),
+              new BotonUI(Colors.purpleAccent, new Text("Preguntas",style: TextStyle(fontSize: 75, fontWeight: FontWeight.bold)), () => Navigator.of(context).push(new MaterialPageRoute(builder: (BuildContext context) => new PaginaQuiz()))), // Boton falso
+              new Padding(
+            padding:  EdgeInsets.all(50), // Añade espacio entre los textos
+            ),
+            
                   ],
-              )
+                  
+              ) ,
+            )
+          
         ],
       )
-    )
     );
   }
 }

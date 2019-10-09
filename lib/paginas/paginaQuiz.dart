@@ -14,9 +14,9 @@ class PaginaEstadoQuiz extends State<PaginaQuiz> {
       children: <Widget>[
         new Column(
           children: <Widget>[
-           new BotonUI(Colors.greenAccent, new Text("Verdadero",style: TextStyle(fontSize: 50))), // Boton verdadero
+           new BotonUI(Colors.greenAccent, new Text("Verdadero",style: TextStyle(fontSize: 50)),() => null), // Boton verdadero
            new PreguntaUI(new Text("Pregunta")), // Pregunta
-           new BotonUI(Colors.redAccent, new Text("Falso",style: TextStyle(fontSize: 50))), // Boton falso
+           new BotonUI(Colors.redAccent, new Text("Falso",style: TextStyle(fontSize: 50)),() => null), // Boton falso
           ],
         )
       ],
