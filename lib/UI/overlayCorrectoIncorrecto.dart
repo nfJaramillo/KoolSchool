@@ -1,18 +1,18 @@
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
 
-class OverlayCorreroIncorrecto extends StatefulWidget {
+class OverlayCorectoIncorrecto extends StatefulWidget {
 
   final bool _isCorrect;
   final VoidCallback _onTap;
 
-  OverlayCorreroIncorrecto(this._isCorrect, this._onTap);
+  OverlayCorectoIncorrecto(this._isCorrect, this._onTap);
 
   @override
   State createState() => new CorrectWrongOverlayState();
 }
 
-class CorrectWrongOverlayState extends State<OverlayCorreroIncorrecto> with SingleTickerProviderStateMixin {
+class CorrectWrongOverlayState extends State<OverlayCorectoIncorrecto> with SingleTickerProviderStateMixin {
 
   Animation<double> _iconAnimation;
   AnimationController _iconAnimationController;

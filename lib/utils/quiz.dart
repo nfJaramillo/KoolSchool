@@ -36,7 +36,7 @@ class Quiz{
   int get darCantidadDePreguntas =>_preguntas.length;
 
   /// Metodo que retora el numero de pregunta actual
-  int get darNumeroDePreguntaActual => _contador;
+  int get darNumeroDePreguntaActual => _contador;   
 
   /// Metodo que retorna el puntaje actual
   int get darPuntajeActual => _puntaje;

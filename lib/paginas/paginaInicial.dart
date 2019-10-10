@@ -19,8 +19,7 @@ class PaginaInicial extends StatelessWidget{
             Expanded(
               child:new Row(
             children: <Widget>[
-             // onTap: () => Navigator.of(context).push(new MaterialPageRoute(builder: (BuildContext context) => new PaginaQuiz())),
-              new Padding(
+               new Padding(
             padding:  EdgeInsets.all(MediaQuery.of(context).size.width * .05), // Añade espacio entre los textos
             ),
               new BotonUI(Colors.grey, new Text("Lecturas",style: TextStyle(fontSize: 75,fontWeight: FontWeight.bold)), () => null), 
