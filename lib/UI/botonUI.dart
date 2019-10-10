@@ -13,7 +13,9 @@ class BotonUI extends StatelessWidget
   /// Texto del boton
   Text texto;
 
+  /// Atributo para guardar lo que va a hacr cuando alguien le de click
   VoidCallback onTap;
+
   //----------------------------------------------
   // CONSTRUCTOR
   //----------------------------------------------

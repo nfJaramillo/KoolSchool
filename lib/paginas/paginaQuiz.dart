@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hello_world/UI/botonUI.dart';
 import 'package:hello_world/UI/overlayCorreroIncorrecto.dart';
 import 'package:hello_world/UI/preguntaUI.dart';
+import 'package:hello_world/paginas/paginaPuntuacion.dart';
 import 'package:hello_world/utils/pregunta.dart';
 import 'package:hello_world/utils/quiz.dart';
 
@@ -68,8 +69,9 @@ class PaginaEstadoQuiz extends State<PaginaQuiz> {
           esCorrecto, 
           () {
              
-             if(quiz.darCantidadDePreguntas == numeroDePreguntaActual){
-              null;
+             if(quiz.darCantidadDePreguntas == numeroDePreguntaActual+1){
+              Navigator.of(context).pushAndRemoveUntil(new MaterialPageRoute(builder: (BuildContext context) => new PaginaPuntuacion(quiz.darPuntajeActual, quiz.darCantidadDePreguntas)), (Route route) => route == null);
+              return;
             }
            
             preguntaActual = quiz.siguientePregunta;
