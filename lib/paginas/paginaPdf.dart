@@ -11,18 +11,34 @@ class PaginaPdf extends StatefulWidget
 
 class PaginaPdfEstado extends State<PaginaPdf>
 {
-   PDFDocument documento;
 
+  //----------------------------------------------
+  // ATRIBUTOS
+  //----------------------------------------------
+
+  /// Atributo que tendra al documento pdf
+  PDFDocument documento;
+
+  /// Atributo booleano que dira si se esta cargando el documento o no
   bool cargando = false;
   
+  //----------------------------------------------
+  // CONSTRUCTOR
+  //----------------------------------------------
+
+  /// Constructor que llama al metodo cargarPdf(). Esto para que solo se llame una vez cuando de crea esta clase
   PaginaPdfEstado()
   {
     cargarPdf();
   }
 
+  //----------------------------------------------
+  // METODOS
+  //----------------------------------------------
+
+  /// Metodo que carga el archivo desde un asset y mantiene el thread ahi mientras lo hace. En ese tiempo aparece el circulo de carga azul en la pantalla
   cargarPdf() async {
     
-  
      documento = await PDFDocument.fromAsset('assets/Texto Lenguaje Grado 1.pdf');
 
     setState(() {
@@ -30,6 +46,7 @@ class PaginaPdfEstado extends State<PaginaPdf>
     });
   }
 
+  /// Metodo que dibujara el visor de pdf junto con un titilo y ayuda de la libreria
   @override
   Widget build(BuildContext context) {
    return Scaffold(
