@@ -8,14 +8,17 @@ class PaginaPuntuacion extends StatelessWidget {
   // ATRIBUTOS
   //----------------------------------------------
 
-   final int puntos;
-   final int preguntasTotales;
+  /// Atributo que tiene la cantidad de puntos totales ganados por el usuario
+  final int _puntos;
+
+  /// Atributo que tiene la cantidad de preuntas totales que fue preguntada
+  final int _preguntasTotales;
 
   //----------------------------------------------
   // CONSTRUCTOR
   //----------------------------------------------
 
-  PaginaPuntuacion(this.puntos, this.preguntasTotales);
+  PaginaPuntuacion(this._puntos, this._preguntasTotales);
 
   //----------------------------------------------
   // METODOS
@@ -29,7 +32,7 @@ class PaginaPuntuacion extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           new Text("Tu puntaje fue de: \n", style: new TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: MediaQuery.of(context).size.width * .05),),
-          new Text(puntos.toString() +" Correctas" + " / " + preguntasTotales.toString() + " Totales", style: new TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: MediaQuery.of(context).size.width * .05)),
+          new Text(_puntos.toString() +" Correctas" + " / " + _preguntasTotales.toString() + " Totales", style: new TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: MediaQuery.of(context).size.width * .05)),
           new IconButton(
             icon: new Icon(Icons.arrow_right),
             color: Colors.white,

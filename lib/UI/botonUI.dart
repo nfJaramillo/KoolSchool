@@ -7,20 +7,20 @@ class BotonUI extends StatelessWidget
   //----------------------------------------------
 
   /// Color del boton
-  final Color elColor;
+  final Color _elColor;
 
   /// Texto del boton
-  final Text texto;
+  final Text _texto;
 
   /// Atributo para guardar lo que va a hacr cuando alguien le de click
-  final VoidCallback onTap;
+  final VoidCallback _onTap;
 
   //----------------------------------------------
   // CONSTRUCTOR
   //----------------------------------------------
 
   /// Contructor que recibira el color y texto del boton
-  BotonUI (this.elColor, this.texto, this.onTap);
+  BotonUI (this._elColor, this._texto, this._onTap);
 
   //----------------------------------------------
   // METODOS
@@ -31,12 +31,12 @@ class BotonUI extends StatelessWidget
   Widget build(BuildContext context) {
     return new Expanded(
                 child: new Material(
-              color: elColor,
+              color: _elColor,
               child: new InkWell(
-                 onTap: () => onTap(),
+                 onTap: () => _onTap(),
                   child: new Center(
                       child: new Container(
-                    child: FittedBox(fit: BoxFit.cover, child: texto),
+                    child: FittedBox(fit: BoxFit.cover, child: _texto),
                   ))),
             ));
   }

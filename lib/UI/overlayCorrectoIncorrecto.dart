@@ -1,6 +1,8 @@
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
 
+// Clase que se encarga se ser el overlay, como la capa superior, cada vez que el usuario responde. Es la que contiene el correcto o incorrecto con su respectiva animacion y cuando esta es tocada se pasa a la siguiente pregunta.
+
 class OverlayCorectoIncorrecto extends StatefulWidget {
 
   final bool _isCorrect;

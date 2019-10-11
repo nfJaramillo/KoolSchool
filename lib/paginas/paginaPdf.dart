@@ -17,10 +17,10 @@ class PaginaPdfEstado extends State<PaginaPdf>
   //----------------------------------------------
 
   /// Atributo que tendra al documento pdf
-  PDFDocument documento;
+  PDFDocument _documento;
 
   /// Atributo booleano que dira si se esta cargando el documento o no
-  bool cargando = false;
+  bool _cargando = false;
   
   //----------------------------------------------
   // CONSTRUCTOR
@@ -39,10 +39,10 @@ class PaginaPdfEstado extends State<PaginaPdf>
   /// Metodo que carga el archivo desde un asset y mantiene el thread ahi mientras lo hace. En ese tiempo aparece el circulo de carga azul en la pantalla
   cargarPdf() async {
     
-     documento = await PDFDocument.fromAsset('assets/Texto Lenguaje Grado 1.pdf');
+     _documento = await PDFDocument.fromAsset('assets/Texto Lenguaje Grado 1.pdf');
 
     setState(() {
-      cargando = false; 
+      _cargando = false; 
     });
   }
 
@@ -54,9 +54,9 @@ class PaginaPdfEstado extends State<PaginaPdf>
           title: Text('Texto Lenguaje Grado 1'),
         ),
         body: Center(
-        child: cargando
+        child: _cargando
             ? Center(child: CircularProgressIndicator())
-            : PDFViewer(document: documento)),
+            : PDFViewer(document: _documento)),
     );
   }
   

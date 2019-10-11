@@ -5,9 +5,9 @@ class Pregunta{
   //----------------------------------------------
 
    /// Atributo donde se guarda la pregunta
-   String pregunta;
+   String _pregunta;
    /// Atributo donde se guarda si la respuesta fue correcta o no
-   bool respuesta;
+   bool _respuesta;
 
   //----------------------------------------------
   // CONSTRUCTOR
@@ -16,9 +16,22 @@ class Pregunta{
   /// Constructor que recibe una pregunta de tipo String y un boolean sobre si la respuesta es corrrecta o no
   Pregunta(pPregunta, pRespuesta)
   {
-    pregunta = pPregunta;
-    respuesta = pRespuesta;
+    _pregunta = pPregunta;
+    _respuesta = pRespuesta;
   }
+
+  //----------------------------------------------
+  // METODOS
+  //----------------------------------------------
+
+  /// Metodo que retorna el texto de la pregunta
+  String get darPregunta => _pregunta;
+
+  /// Metodo que retorna la respuesta 
+  bool get darRespuesta => _respuesta;
+
+
+
 
 
 }

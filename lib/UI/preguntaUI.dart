@@ -7,14 +7,14 @@ class PreguntaUI extends StatefulWidget{
 //----------------------------------------------
 
 // Atributo que guardara el texto de la pregunta
-final Text texto;
+final Text _texto;
 
 //----------------------------------------------
 // CONSTRUCTOR
 //----------------------------------------------
 
 /// Contructor de la pregunta que recibe el texto que contendra 
-PreguntaUI (this.texto);
+PreguntaUI (this._texto);
 
 //----------------------------------------------
 // METODOS
@@ -37,7 +37,7 @@ class PreguntaEstado extends State<PreguntaUI>  with SingleTickerProviderStateMi
     child: new Padding(
       padding: new EdgeInsets.symmetric(vertical: 30), // Crea unas margenes o sangria 
       child: new Center(
-        child: FittedBox(fit: BoxFit.cover, child: new Text(widget.texto.data,style: TextStyle(fontSize: 30))), // Pone el texto
+        child: FittedBox(fit: BoxFit.cover, child: new Text(widget._texto.data,style: TextStyle(fontSize: 30))), // Pone el texto
       ),
     )
     );

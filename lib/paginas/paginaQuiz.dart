@@ -18,7 +18,7 @@ class PaginaEstadoQuiz extends State<PaginaQuiz> {
   //----------------------------------------------
 
   /// Atributo para la pregunta actual 
-  Pregunta preguntaActual;
+  Pregunta _preguntaActual;
 
   /// Atributo que corre un nuevo quiz con ciertas preguntas
   Quiz quiz = new Quiz([
@@ -51,14 +51,14 @@ class PaginaEstadoQuiz extends State<PaginaQuiz> {
   @override
   void initState() {
     super.initState();
-    preguntaActual = quiz.siguientePregunta;
-    textoDeLaPregunta = preguntaActual.pregunta;
+    _preguntaActual = quiz.siguientePregunta;
+    textoDeLaPregunta = _preguntaActual.darPregunta;
     numeroDePreguntaActual = quiz.darNumeroDePreguntaActual;
   }
 
   /// Metodo que se corre luego de que el usuario responde, este comprueba si la respuesta fue correcta
   void manejarRespuesta(bool respuesta){
-    esCorrecto = (preguntaActual.respuesta == respuesta);
+    esCorrecto = (_preguntaActual.darRespuesta == respuesta);
     quiz.ganarPunto(esCorrecto);
     this.setState((){
       overlayVisible = true;
@@ -86,10 +86,10 @@ class PaginaEstadoQuiz extends State<PaginaQuiz> {
               return;
             }
            
-            preguntaActual = quiz.siguientePregunta;
+            _preguntaActual = quiz.siguientePregunta;
             this.setState((){ // Esta parte actualizara la pregunta cuando se avanze 
               overlayVisible = false;
-              textoDeLaPregunta = preguntaActual.pregunta;
+              textoDeLaPregunta = _preguntaActual.darPregunta;
               numeroDePreguntaActual = quiz.darNumeroDePreguntaActual;
             });
           }): new Container()
