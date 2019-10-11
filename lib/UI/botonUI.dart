@@ -1,5 +1,4 @@
  import 'package:flutter/material.dart';
-import 'package:hello_world/paginas/paginaQuiz.dart';
 
 class BotonUI extends StatelessWidget
  {
@@ -8,27 +7,20 @@ class BotonUI extends StatelessWidget
   //----------------------------------------------
 
   /// Color del boton
-  Color elColor;
+  final Color elColor;
 
   /// Texto del boton
-  Text texto;
+  final Text texto;
 
   /// Atributo para guardar lo que va a hacr cuando alguien le de click
-  VoidCallback onTap;
+  final VoidCallback onTap;
 
   //----------------------------------------------
   // CONSTRUCTOR
   //----------------------------------------------
 
   /// Contructor que recibira el color y texto del boton
-  BotonUI (Color pColor, Text pTexto, VoidCallback pOnTap)
-  {
-    elColor = pColor;
-
-    texto = pTexto;
-
-    onTap = pOnTap;
-  }
+  BotonUI (this.elColor, this.texto, this.onTap);
 
   //----------------------------------------------
   // METODOS

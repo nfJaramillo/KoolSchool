@@ -8,18 +8,14 @@ class PaginaPuntuacion extends StatelessWidget {
   // ATRIBUTOS
   //----------------------------------------------
 
-   int puntos;
-   int preguntasTotales;
+   final int puntos;
+   final int preguntasTotales;
 
   //----------------------------------------------
   // CONSTRUCTOR
   //----------------------------------------------
 
-  PaginaPuntuacion(pPuntos, pPreguntasTotales)
-  {
-    puntos = pPuntos;
-    preguntasTotales = pPreguntasTotales;
-  }
+  PaginaPuntuacion(this.puntos, this.preguntasTotales);
 
   //----------------------------------------------
   // METODOS

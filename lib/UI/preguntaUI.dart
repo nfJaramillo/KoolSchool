@@ -7,18 +7,14 @@ class PreguntaUI extends StatefulWidget{
 //----------------------------------------------
 
 // Atributo que guardara el texto de la pregunta
-Text texto;
+final Text texto;
 
 //----------------------------------------------
 // CONSTRUCTOR
 //----------------------------------------------
 
 /// Contructor de la pregunta que recibe el texto que contendra 
-PreguntaUI ( Text pTexto)
-{
-  texto = pTexto;
-  print(texto);
-}
+PreguntaUI (this.texto);
 
 //----------------------------------------------
 // METODOS
