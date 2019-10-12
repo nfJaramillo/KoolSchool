@@ -1,7 +1,6 @@
- import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 
-class BotonUI extends StatelessWidget
- {
+class BotonUI extends StatelessWidget {
   //----------------------------------------------
   // ATRIBUTOS
   //----------------------------------------------
@@ -20,7 +19,7 @@ class BotonUI extends StatelessWidget
   //----------------------------------------------
 
   /// Contructor que recibira el color y texto del boton
-  BotonUI (this._elColor, this._texto, this._onTap);
+  BotonUI(this._elColor, this._texto, this._onTap);
 
   //----------------------------------------------
   // METODOS
@@ -30,16 +29,23 @@ class BotonUI extends StatelessWidget
   @override
   Widget build(BuildContext context) {
     return new Expanded(
-                child: new Material(
-              color: _elColor,
-              child: new InkWell(
-                 onTap: () => _onTap(),
-                  child: new Center(
-                      child: new Container(
-                    child: FittedBox(fit: BoxFit.cover, child: _texto),
-                  ))),
-            ));
+      child: new Material(
+          color: _elColor,
+          child: new InkWell(
+            onTap: () => _onTap(),
+            child: new Center(
+                child: new Container(
+              decoration: new BoxDecoration(
+                  border: new Border.all(color: Colors.white, width: 5.0)),
+              padding: new EdgeInsets.all(20.0),
+              child: new Text(_texto.data,
+                  style: new TextStyle(
+                      color: Colors.white,
+                      fontSize: MediaQuery.of(context).size.width * .05,
+                      fontWeight: FontWeight.bold,
+                      fontStyle: FontStyle.italic)),
+            )),
+          )),
+    );
   }
-   
- }
- 
+}

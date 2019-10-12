@@ -22,12 +22,12 @@ class PaginaEstadoQuiz extends State<PaginaQuiz> {
 
   /// Atributo que corre un nuevo quiz con ciertas preguntas
   Quiz quiz = new Quiz([
-    new Pregunta("¿Miguel es un niño Indigena", true),
-    new Pregunta("¿Para llegar a Bogotá se demoran 10 dias?", false),
-    new Pregunta("¿En la Pedrera deben tomar un avion?", true),
-    new Pregunta("¿El miercoles la gente del pueblo se reune para ver la llegada y la salida del avion?", false),
-    new Pregunta("¿El avion de la Pedrera a Leticia se demora 10 horas?", false),
-    new Pregunta("¿Para viajar de la ciudad de Leticia hacia Bogotá deberan tomar otro avion?", true),
+    new Pregunta("¿Miguel es un niño Indígena?", true),
+    new Pregunta("¿Para llegar a Bogotá se demoran 10 días?", false),
+    new Pregunta("¿En la Pedrera deben tomar un avión?", true),
+    new Pregunta("¿El miercoles la gente del pueblo se reune para ver la llegada y la salida del avión?", false),
+    new Pregunta("¿El avión de la Pedrera a Leticia se demora 10 horas?", false),
+    new Pregunta("¿Para viajar de la ciudad de Leticia hacia Bogotá deberan tomar otro avión?", true),
     new Pregunta("¿Miguel, su papá y su tío pasan la noche en un hotel pequeño?", true)]);
   
 

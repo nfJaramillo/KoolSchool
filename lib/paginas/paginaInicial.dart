@@ -11,11 +11,11 @@ class PaginaInicial extends StatelessWidget{
         mainAxisAlignment: MainAxisAlignment.center, // Centra lo de la columna en el ejer y
         children: <Widget>[
           new Padding(
-            padding:  EdgeInsets.all(50), // Añade espacio entre los textos
+            padding:  EdgeInsets.all(MediaQuery.of(context).size.width * .05), // Añade espacio entre los textos
             ),
            FittedBox(fit:BoxFit.cover, child: new Text("KoolSchool", style: TextStyle(fontSize: 100, fontWeight: FontWeight.bold, color: Colors.white))),
             new Padding(
-            padding:  EdgeInsets.all(50), // Añade espacio entre los textos
+            padding:  EdgeInsets.all(MediaQuery.of(context).size.width * .05), // Añade espacio entre los textos
             ),
             Expanded(
               child:new Row(
