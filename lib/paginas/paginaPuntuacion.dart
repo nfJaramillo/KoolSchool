@@ -32,7 +32,7 @@ class PaginaPuntuacion extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           new Text("Tu puntaje fue de: \n", style: new TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: MediaQuery.of(context).size.width * .05),),
-          new Text(_puntos.toString() +" Correctas" + " / " + _preguntasTotales.toString() + " Totales", style: new TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: MediaQuery.of(context).size.width * .05)),
+          new Text(_puntos.toString() +" Respuestas correctas de " +  _preguntasTotales.toString() , style: new TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: MediaQuery.of(context).size.width * .05)),
           new IconButton(
             icon: new Icon(Icons.arrow_right),
             color: Colors.white,

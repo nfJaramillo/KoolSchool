@@ -31,7 +31,7 @@ class PaginaEstadoQuiz extends State<PaginaQuiz> {
     new Pregunta("¿Miguel, su papá y su tío pasan la noche en un hotel pequeño?", true)]);
   
 
-  /// Atributo con el texto dela pregunta actual  
+  /// Atributo con el texto dela pregunta actual  z
   String textoDeLaPregunta;
 
   /// Atributo que guarda el numero dela pregunta actual
