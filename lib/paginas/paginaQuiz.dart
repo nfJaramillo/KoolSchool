@@ -44,6 +44,7 @@ class PaginaEstadoQuiz extends State<PaginaQuiz> {
   /// Atributo que dice si el overlay del feedback de la respuesta se muestra en pantalla o no 
   bool overlayVisible = false;
 
+ /// Atributo que guarda el text input de las preguntas abiertas
   TextInputUI textInput;
 
   //----------------------------------------------
@@ -59,7 +60,7 @@ class PaginaEstadoQuiz extends State<PaginaQuiz> {
     numeroDePreguntaActual = quiz.darNumeroDePreguntaActual;
   }
 
-  /// Metodo que se corre luego de que el usuario responde, este comprueba si la respuesta fue correcta
+  /// Metodo que se corre luego de que el usuario responde, este comprueba si la respuesta fue correcta SOLO PARA PREGUNTAS VOF Y MULTIPLE
   void manejarRespuesta(String respuesta){
     esCorrecto = (_preguntaActual.darRespuesta == respuesta);
     quiz.ganarPunto(esCorrecto);
@@ -68,6 +69,7 @@ class PaginaEstadoQuiz extends State<PaginaQuiz> {
     });
   }
 
+  /// Metodo que se corre luego de que el usuario responde, este comprueba si la respuesta fue correcta SOLO PARA PREGUNTA ABIERTA
   void manejarRespuestaAbierta()
   {
     esCorrecto = (_preguntaActual.darRespuesta == textInput.darRespuesta);
@@ -119,7 +121,7 @@ class PaginaEstadoQuiz extends State<PaginaQuiz> {
 
         if(_preguntaActual.darTipoDePregunta ==  TipoDePregunta.abierta) // Si es pregunta ABIERTA
           textInput = new TextInputUI (() => manejarRespuestaAbierta()),
-        if(_preguntaActual.darTipoDePregunta ==  TipoDePregunta.abierta) // Si es pregunta ABIERTA
+        if(_preguntaActual.darTipoDePregunta ==  TipoDePregunta.abierta) // Si es pregunta ABIERTA hay 2 if pq no me deja poner corchetes y no entiendo pq, pero asi funciona
           new Column(
           children: <Widget>[
             new Flexible (

@@ -4,19 +4,36 @@ import 'package:hello_world/UI/botonUI.dart';
 
 class TextInputUI extends StatefulWidget{
 
-  /// Atributo para guardar lo que va a hacr cuando alguien le de click
+  //----------------------------------------------
+  // ATRIBUTOS
+  //----------------------------------------------
+
+  /// Atributo para guardar lo que va a hacer cuando alguien le de click
   final VoidCallback _onTap;
 
+  /// Atributo para la respuesta escrita en el input
   String _respuesta;
   
+  //----------------------------------------------
+  // CONSTRUCTOR
+  //----------------------------------------------
+  
+  /// Constructor que recibe por parametro el metodo que se va a ajecutar luego de darle click en calificar
   TextInputUI(this._onTap);
   
 
+  //----------------------------------------------
+  // METODOS
+  //----------------------------------------------
+
+  /// Metodo que crea el estado a cambiar, esto es otra calse, es para que el usuario pueda ur viendo lo que escribe
   @override
   State createState() => new TextInputValueState();
-
+  
+  /// Metodo que retorna la respuesta
   String get darRespuesta => _respuesta;
 
+  /// Metodo para cambiar la respuesta
   void cambiarRespuesta(String pRespuesta)
   {
     _respuesta = pRespuesta;
@@ -56,6 +73,7 @@ class TextInputValueState extends State<TextInputUI> {
         
   }
 
+  /// Metodo para cambiar la respuesta despues de escrita por el usuario y llamar al metodo on tap que le llego por parametro a la clase TextInputUI
   void verificarRespuesta(String pRespuesta)
   {
     widget.cambiarRespuesta(pRespuesta);
