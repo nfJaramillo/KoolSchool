@@ -2,10 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:hello_world/UI/botonUI.dart';
 import 'package:hello_world/paginas/paginaPdf.dart';
 import 'package:hello_world/paginas/paginaQuiz.dart';
+import 'package:flutter/services.dart';
 
 class PaginaInicial extends StatelessWidget{
   @override
-  Widget build(BuildContext context){
+
+    // Fuerza a la aplicacion a arracar en modo horizontal
+    Widget build(BuildContext context){
+    SystemChrome.setPreferredOrientations([
+    DeviceOrientation.landscapeLeft,
+    DeviceOrientation.landscapeRight,
+    ]);
+
     return new Material(color: Colors.yellow, // Un material es como una hoja de papel encima de la pantalla
      child: new Column(
         mainAxisAlignment: MainAxisAlignment.center, // Centra lo de la columna en el ejer y
