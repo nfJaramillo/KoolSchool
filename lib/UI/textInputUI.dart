@@ -6,6 +6,8 @@ class TextInputUI extends StatefulWidget{
 
   /// Atributo para guardar lo que va a hacr cuando alguien le de click
   final VoidCallback _onTap;
+
+  String _respuesta;
   
   TextInputUI(this._onTap);
   
@@ -13,18 +15,20 @@ class TextInputUI extends StatefulWidget{
   @override
   State createState() => new TextInputValueState();
 
+  String get darRespuesta => _respuesta;
+
+  void cambiarRespuesta(String pRespuesta)
+  {
+    _respuesta = pRespuesta;
+  }
+
 
 }
 
 class TextInputValueState extends State<TextInputUI> {
   TextEditingController _textInputController = TextEditingController();
-  String _showText = "";
-
-  _onPressed() {
-    setState(() {
-      _showText = _textInputController.text;
-    });
-  }
+ 
+  
 
   @override
   Widget build(BuildContext context) {
@@ -44,11 +48,18 @@ class TextInputValueState extends State<TextInputUI> {
                   decoration: InputDecoration(hintText: 'Escribe tu respuesta aqui'),
                 ),
               ),
-              new BotonUI(Colors.blue, new Text("Calificar",style: TextStyle(fontSize: 50)), widget._onTap)
+              new BotonUI(Colors.blue, new Text("Calificar",style: TextStyle(fontSize: 50)),() => verificarRespuesta(_textInputController.text))
              
             ],
           ),
         ));
+        
+  }
+
+  void verificarRespuesta(String pRespuesta)
+  {
+    widget.cambiarRespuesta(pRespuesta);
+    widget._onTap();
   }
 }
 
