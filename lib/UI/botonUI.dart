@@ -36,8 +36,8 @@ class BotonUI extends StatelessWidget {
             child: new Center(
                 child: new Container(
               decoration: new BoxDecoration(
-                  border: new Border.all(color: Colors.white, width: 5.0)),
-              padding: new EdgeInsets.all(20.0),
+                  border: new Border.all(color: Colors.white, width: MediaQuery.of(context).size.width * .01)),
+              padding: new EdgeInsets.all(MediaQuery.of(context).size.width * .01),
               child: new Text(_texto.data,
                   style: new TextStyle(
                       color: Colors.white,

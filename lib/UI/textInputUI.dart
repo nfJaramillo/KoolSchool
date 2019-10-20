@@ -58,7 +58,7 @@ class TextInputValueState extends State<TextInputUI> {
             mainAxisSize: MainAxisSize.max,
             children: <Widget>[
               Padding(
-                padding: const EdgeInsets.all(75),
+                padding: const EdgeInsets.all(50),
                 child: TextField(
                   controller: _textInputController,
                   autocorrect: true,
