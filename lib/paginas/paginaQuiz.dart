@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hello_world/UI/botonUI.dart';
 import 'package:hello_world/UI/overlayCorrectoIncorrecto.dart';
 import 'package:hello_world/UI/preguntaUI.dart';
+import 'package:hello_world/UI/textInputUI.dart';
 import 'package:hello_world/paginas/paginaPuntuacion.dart';
 import 'package:hello_world/utils/pregunta.dart';
 import 'package:hello_world/utils/quiz.dart';
@@ -24,7 +25,7 @@ class PaginaEstadoQuiz extends State<PaginaQuiz> {
   Quiz quiz = new Quiz([
     new Pregunta.vofYabierta("¿Miguel es un niño Indígena?", "Verdadero", TipoDePregunta.vOF),
     new Pregunta.multiple("¿Cunato de demoran en llegar Bogotá?", "a", TipoDePregunta.multiple, ["10 dias","1 hora","2 años","10 meses"]),
-    new Pregunta.vofYabierta("¿En la Pedrera deben tomar un avión?", "Verdadero", TipoDePregunta.vOF),
+    new Pregunta.vofYabierta("¿En la Pedrera deben tomar un avión?", "Verdadero", TipoDePregunta.abierta),
     new Pregunta.vofYabierta("¿El miercoles la gente del pueblo se reune para ver la llegada y la salida del avión?", "Falso", TipoDePregunta.vOF),
     new Pregunta.vofYabierta("¿El avión de la Pedrera a Leticia se demora 10 horas?", "Falso", TipoDePregunta.vOF),
     new Pregunta.vofYabierta("¿Para viajar de la ciudad de Leticia hacia Bogotá deberan tomar otro avión?", "Verdadero", TipoDePregunta.vOF),
@@ -42,6 +43,8 @@ class PaginaEstadoQuiz extends State<PaginaQuiz> {
 
   /// Atributo que dice si el overlay del feedback de la respuesta se muestra en pantalla o no 
   bool overlayVisible = false;
+
+  final formKey = GlobalKey<FormState> ();
 
   //----------------------------------------------
   // METODOS
@@ -71,7 +74,7 @@ class PaginaEstadoQuiz extends State<PaginaQuiz> {
     return new Stack(
       children: <Widget>[
 
-        if(_preguntaActual.darTipoDePregunta ==  TipoDePregunta.vOF) // Si es pregunta de verdadero o falso contruye esa parte grafica
+        if(_preguntaActual.darTipoDePregunta ==  TipoDePregunta.vOF) // Si es pregunta de VERDADERO O FALSO
           new Column(
           children: <Widget>[
            new BotonUI(Colors.greenAccent, new Text("Verdadero",style: TextStyle(fontSize: 50)),() => manejarRespuesta("Verdadero")), // Boton verdadero
@@ -80,7 +83,7 @@ class PaginaEstadoQuiz extends State<PaginaQuiz> {
           ],
         ),
 
-        if(_preguntaActual.darTipoDePregunta == TipoDePregunta.multiple)
+        if(_preguntaActual.darTipoDePregunta == TipoDePregunta.multiple) // Si la pregunta es eleccion MULTIPLE 
           new Column(
           children: <Widget>[
             Expanded(
@@ -102,6 +105,21 @@ class PaginaEstadoQuiz extends State<PaginaQuiz> {
                  ]
               )
             ),
+          ],
+        ),
+
+        if(_preguntaActual.darTipoDePregunta ==  TipoDePregunta.abierta) // Si es pregunta ABIERTA
+          new Column(
+          children: <Widget>[
+            new Flexible (
+              flex: 1,
+           child: new PreguntaUI(new Text(textoDeLaPregunta)), // Pregunta
+            ),
+           new Flexible(
+             flex: 2,
+             child:new TextInputUI(() => manejarRespuesta("c")),
+           )
+           
           ],
         ),
         
