@@ -120,7 +120,7 @@ class PaginaEstadoQuiz extends State<PaginaQuiz> {
         ),
 
         if(_preguntaActual.darTipoDePregunta ==  TipoDePregunta.abierta) // Si es pregunta ABIERTA
-          textInput = new TextInputUI (() => manejarRespuestaAbierta()),
+          textInput = new TextInputUI (() => manejarRespuestaAbierta(),"Escribe tu respuesta aquí","Calificar"),
         if(_preguntaActual.darTipoDePregunta ==  TipoDePregunta.abierta) // Si es pregunta ABIERTA hay 2 if pq no me deja poner corchetes y no entiendo pq, pero asi funciona
           new Column(
           children: <Widget>[
@@ -128,7 +128,7 @@ class PaginaEstadoQuiz extends State<PaginaQuiz> {
               flex: 1,
            child: new PreguntaUI(new Text(textoDeLaPregunta)), // Pregunta
             ),
-           new Flexible(
+           new Expanded(
              flex: 2,
              
              child: textInput,

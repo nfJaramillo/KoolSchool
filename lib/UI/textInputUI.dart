@@ -8,6 +8,12 @@ class TextInputUI extends StatefulWidget{
   // ATRIBUTOS
   //----------------------------------------------
 
+  /// Atributo que tiene el texto pista sobre el que escribira el usuario
+  final String _textoPista;
+
+  /// Atributo que tiene el texto del boton 
+  final String _textoBoton;
+
   /// Atributo para guardar lo que va a hacer cuando alguien le de click
   final VoidCallback _onTap;
 
@@ -18,8 +24,8 @@ class TextInputUI extends StatefulWidget{
   // CONSTRUCTOR
   //----------------------------------------------
   
-  /// Constructor que recibe por parametro el metodo que se va a ajecutar luego de darle click en calificar
-  TextInputUI(this._onTap);
+  /// Constructor que recibe por parametro el metodo que se va a ajecutar luego de darle click en calificar, el texto pista y el texto del boton
+  TextInputUI(this._onTap, this._textoPista, this._textoBoton);
   
 
   //----------------------------------------------
@@ -50,9 +56,9 @@ class TextInputValueState extends State<TextInputUI> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomPadding: false,
+      //resizeToAvoidBottomInset : false,
       backgroundColor: Colors.white,
-        body: Center(
+        body: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             mainAxisSize: MainAxisSize.max,
@@ -62,10 +68,10 @@ class TextInputValueState extends State<TextInputUI> {
                 child: TextField(
                   controller: _textInputController,
                   autocorrect: true,
-                  decoration: InputDecoration(hintText: 'Escribe tu respuesta aqui'),
+                  decoration: InputDecoration(hintText: widget._textoPista),
                 ),
               ),
-              new BotonUI(Colors.blue, new Text("Calificar",style: TextStyle(fontSize: 50)),() => verificarRespuesta(_textInputController.text))
+              new BotonUI2(Colors.blue, new Text(widget._textoBoton,style: TextStyle(fontSize: 50)),() => verificarRespuesta(_textInputController.text))
              
             ],
           ),
