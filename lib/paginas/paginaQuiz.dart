@@ -13,27 +13,85 @@ class PaginaQuiz extends StatefulWidget {
 }
 
 class PaginaEstadoQuiz extends State<PaginaQuiz> {
-
   //----------------------------------------------
   // ATRIBUTOS
   //----------------------------------------------
 
-  /// Atributo para la pregunta actual 
+  /// Atributo para la pregunta actual
   Pregunta _preguntaActual;
 
   /// Atributo que corre un nuevo quiz con ciertas preguntas
   Quiz quiz = new Quiz([
-    new Pregunta.vofYabierta("¿Miguel es un niño Indígena?", "Verdadero", TipoDePregunta.vOF),
-    new Pregunta.multiple("¿Miguel quiere acompañar a su papá en un viaje a?", "a", TipoDePregunta.multiple, ["Bogotá","Cali","Medellin","Cartagena"]),
-    new Pregunta.vofYabierta("¿Cuantos dias se demoran en llegar Bogotá? (Escriba solo el numero de dias)", "5", TipoDePregunta.abierta),
-    new Pregunta.vofYabierta("¿El miercoles la gente del pueblo se reune para ver la llegada y la salida del avión?", "Falso", TipoDePregunta.vOF),
-    new Pregunta.vofYabierta("¿El avión de la Pedrera a Leticia se demora 10 horas?", "Falso", TipoDePregunta.vOF),
-    new Pregunta.vofYabierta("¿Para viajar de la ciudad de Leticia hacia Bogotá deberan tomar otro avión?", "Verdadero", TipoDePregunta.vOF),
-    new Pregunta.vofYabierta("¿Miguel, su papá y su tío pasan la noche en un hotel pequeño?", "Verdadero", TipoDePregunta.vOF)]);
-  
+    new Pregunta.vofYabierta(
+      "¿Miguel es un niño Indígena?",
+      "Verdadero",
+      TipoDePregunta.vOF,
+      [" Muy Bien Has Acertado ", " Que mal, estudia mejor la proxima vez"],
+    ),
+    new Pregunta.multiple(
+      "¿Miguel quiere acompañar a su papá en un viaje a?",
+      "a",
+      TipoDePregunta.multiple,
+      ["Bogotá", "Cali", "Medellin", "Cartagena"],
+      [
+        "Muy Bien! Efectivamente quieren ir a la Capital de nuestra Colombia ",
+        "Oh oh! No es la correcta, nunca hablamos de Cali !",
+        "Oh oh! No es la correcta, nunca hablamos de Medellin !",
+        "Oh oh! No es la correcta, nunca hablamos de Cartagena !",
+      ],
+    ),
+    new Pregunta.vofYabierta(
+      "¿Cuantos dias se demoran en llegar Bogotá? (Escriba solo el numero de dias)",
+      "5",
+      TipoDePregunta.abierta,
+      [
+        "Asi es! son 5 días! ",
+        "Parece que no recordaste bien el número, puedes anotar en un cuaderno, escribir nos ayuda a memorizar !",
+      ],
+    ),
+    new Pregunta.vofYabierta(
+      "¿El miércoles la gente del pueblo se reune para ver la llegada y la salida del avión?",
+      "Falso",
+      TipoDePregunta.vOF,
+      [
+        " Es cierto porque no es el miércoles sino otro día! ",
+        " Oh no! Entendiste el día que no era",
+      ],
+    ),
+    new Pregunta.vofYabierta(
+      "¿El avión de la Pedrera a Leticia se demora 10 horas?",
+      "Falso",
+      TipoDePregunta.vOF,
+      [
+        " Así es! Son menos de 10 horas !",
+        " Parece que no recordaste bien el numero, puedes anotar en un cuaderno, escribir nos ayuda a memorizar !",
+      ],
+    ),
+    new Pregunta.vofYabierta(
+      "¿Para viajar de la ciudad de Leticia hacia Bogotá deberan tomar otro avión?",
+      "Verdadero",
+      TipoDePregunta.vOF,
+      [
+        " Vaya! Que buen lector eres, efectivamente tienen que tomar otro vuelo",
+         "Oh no! no recordaste que deben tomar otro vuelo, revisa la lectura con cuidado! ",
+      ],
+    ),
+    new Pregunta.vofYabierta(
+      "¿Miguel, su papá y su tío pasan la noche en un hotel pequeño?",
+      "Verdadero",
+      TipoDePregunta.vOF,
+      [
+        "Sin duda, el hotel que escogieron era un hotel pequeño",
+        "Oh no! tal vez no te fijaste bien en el adjetivo, revisa la lectura con cuidado",
+      ],
+    )
+  ]);
 
   /// Atributo con el texto dela pregunta actual  z
   String textoDeLaPregunta;
+
+  /// Atributo que modela la retroalimentacion
+  String retroalimentacionDeLaPregunta;
 
   /// Atributo que guarda el numero dela pregunta actual
   int numeroDePreguntaActual;
@@ -41,10 +99,10 @@ class PaginaEstadoQuiz extends State<PaginaQuiz> {
   /// Atributo para guardar si la respuesta que dio el usuario es correcta o no, este se actualiza compribandola la respuesta esperada
   bool esCorrecto;
 
-  /// Atributo que dice si el overlay del feedback de la respuesta se muestra en pantalla o no 
+  /// Atributo que dice si el overlay del feedback de la respuesta se muestra en pantalla o no
   bool overlayVisible = false;
 
- /// Atributo que guarda el text input de las preguntas abiertas
+  /// Atributo que guarda el text input de las preguntas abiertas
   TextInputUI textInput;
 
   //----------------------------------------------
@@ -61,20 +119,24 @@ class PaginaEstadoQuiz extends State<PaginaQuiz> {
   }
 
   /// Metodo que se corre luego de que el usuario responde, este comprueba si la respuesta fue correcta SOLO PARA PREGUNTAS VOF Y MULTIPLE
-  void manejarRespuesta(String respuesta){
+  void manejarRespuesta(String respuesta) {
     esCorrecto = (_preguntaActual.darRespuesta == respuesta);
+    retroalimentacionDeLaPregunta =
+        _preguntaActual.darRetroalimentacionAPregunta(respuesta);
     quiz.ganarPunto(esCorrecto);
-    this.setState((){
+    this.setState(() {
       overlayVisible = true;
     });
   }
 
   /// Metodo que se corre luego de que el usuario responde, este comprueba si la respuesta fue correcta SOLO PARA PREGUNTA ABIERTA
-  void manejarRespuestaAbierta()
-  {
-    esCorrecto = (_preguntaActual.darRespuesta == textInput.darRespuesta);
+  void manejarRespuestaAbierta() {
+    String response = textInput.darRespuesta;
+    esCorrecto = (_preguntaActual.darRespuesta == response);
+    retroalimentacionDeLaPregunta =
+        _preguntaActual.darRetroalimentacionAPregunta(response);
     quiz.ganarPunto(esCorrecto);
-    this.setState((){
+    this.setState(() {
       overlayVisible = true;
     });
   }
@@ -84,75 +146,103 @@ class PaginaEstadoQuiz extends State<PaginaQuiz> {
   Widget build(BuildContext context) {
     return new Stack(
       children: <Widget>[
-
-        if(_preguntaActual.darTipoDePregunta ==  TipoDePregunta.vOF) // Si es pregunta de VERDADERO O FALSO
+        if (_preguntaActual.darTipoDePregunta ==
+            TipoDePregunta.vOF) // Si es pregunta de VERDADERO O FALSO
           new Column(
-          children: <Widget>[
-           new BotonUI(Colors.greenAccent, new Text("Verdadero",style: TextStyle(fontSize: 50)),() => manejarRespuesta("Verdadero")), // Boton verdadero
-           new PreguntaUI(new Text(textoDeLaPregunta)), // Pregunta
-           new BotonUI(Colors.redAccent, new Text("Falso",style: TextStyle(fontSize: 50)),() => manejarRespuesta("Falso")), // Boton falso
-          ],
-        ),
-
-        if(_preguntaActual.darTipoDePregunta == TipoDePregunta.multiple) // Si la pregunta es eleccion MULTIPLE 
+            children: <Widget>[
+              new BotonUI(
+                  Colors.greenAccent,
+                  new Text("Verdadero", style: TextStyle(fontSize: 50)),
+                  () => manejarRespuesta("Verdadero")), // Boton verdadero
+              new PreguntaUI(new Text(textoDeLaPregunta)), // Pregunta
+              new BotonUI(
+                  Colors.redAccent,
+                  new Text("Falso", style: TextStyle(fontSize: 50)),
+                  () => manejarRespuesta("Falso")), // Boton falso
+            ],
+          ),
+        if (_preguntaActual.darTipoDePregunta ==
+            TipoDePregunta.multiple) // Si la pregunta es eleccion MULTIPLE
           new Column(
-          children: <Widget>[
-            Expanded(
-              child: new Row(
-                 children: <Widget>[
-                new BotonUI(Colors.amber, new Text(_preguntaActual.darOpciones[0],style: TextStyle(fontSize: 50)),() => manejarRespuesta("a")), // Boton a
-                new BotonUI(Colors.blueAccent, new Text(_preguntaActual.darOpciones[1],style: TextStyle(fontSize: 50)),() => manejarRespuesta("b")), // Boton b
-                 ]
+            children: <Widget>[
+              Expanded(
+                  child: new Row(children: <Widget>[
+                new BotonUI(
+                    Colors.amber,
+                    new Text(_preguntaActual.darOpciones[0],
+                        style: TextStyle(fontSize: 50)),
+                    () => manejarRespuesta("a")), // Boton a
+                new BotonUI(
+                    Colors.blueAccent,
+                    new Text(_preguntaActual.darOpciones[1],
+                        style: TextStyle(fontSize: 50)),
+                    () => manejarRespuesta("b")), // Boton b
+              ])),
+
+              new PreguntaUI(new Text(textoDeLaPregunta)), // Pregunta
+
+              Expanded(
+                  child: new Row(children: <Widget>[
+                new BotonUI(
+                    Colors.red,
+                    new Text(_preguntaActual.darOpciones[2],
+                        style: TextStyle(fontSize: 50)),
+                    () => manejarRespuesta("c")), // Boton c
+                new BotonUI(
+                    Colors.lime,
+                    new Text(_preguntaActual.darOpciones[3],
+                        style: TextStyle(fontSize: 50)),
+                    () => manejarRespuesta("d")), // Boton b
+              ])),
+            ],
+          ),
+        if (_preguntaActual.darTipoDePregunta ==
+            TipoDePregunta.abierta) // Si es pregunta ABIERTA
+          textInput = new TextInputUI(() => manejarRespuestaAbierta(),
+              "Escribe tu respuesta aquí", "Calificar"),
+        if (_preguntaActual.darTipoDePregunta ==
+            TipoDePregunta
+                .abierta) // Si es pregunta ABIERTA hay 2 if pq no me deja poner corchetes y no entiendo pq, pero asi funciona
+          new Column(
+            children: <Widget>[
+              new Flexible(
+                flex: 1,
+                child: new PreguntaUI(new Text(textoDeLaPregunta)), // Pregunta
+              ),
+              new Expanded(
+                flex: 2,
+                child: textInput,
               )
-            ),
-            
-           new PreguntaUI(new Text(textoDeLaPregunta)), // Pregunta
+            ],
+          ),
+        overlayVisible == true
+            ? new OverlayCorectoIncorrecto(
+                esCorrecto,
+                () {
+                  if (quiz.darCantidadDePreguntas ==
+                      numeroDePreguntaActual + 1) {
+                    // Verifica que aun queden preguntas por responder
+                    Navigator.of(context).pushAndRemoveUntil(
+                        new MaterialPageRoute(
+                            builder: (BuildContext context) =>
+                                new PaginaPuntuacion(quiz.darPuntajeActual,
+                                    quiz.darCantidadDePreguntas)),
+                        (Route route) =>
+                            route == null); // Avanza a la pagina de puntuacion
+                    return;
+                  }
 
-            Expanded(
-              child: new Row(
-                 children: <Widget>[
-                new BotonUI(Colors.red, new Text(_preguntaActual.darOpciones[2],style: TextStyle(fontSize: 50)),() => manejarRespuesta("c")), // Boton c
-                new BotonUI(Colors.lime, new Text(_preguntaActual.darOpciones[3],style: TextStyle(fontSize: 50)),() => manejarRespuesta("d")), // Boton b
-                 ]
+                  _preguntaActual = quiz.siguientePregunta;
+                  this.setState(() {
+                    // Esta parte actualizara la pregunta cuando se avanze
+                    overlayVisible = false;
+                    textoDeLaPregunta = _preguntaActual.darPregunta;
+                    numeroDePreguntaActual = quiz.darNumeroDePreguntaActual;
+                  });
+                },
+                this.retroalimentacionDeLaPregunta,
               )
-            ),
-          ],
-        ),
-
-        if(_preguntaActual.darTipoDePregunta ==  TipoDePregunta.abierta) // Si es pregunta ABIERTA
-          textInput = new TextInputUI (() => manejarRespuestaAbierta(),"Escribe tu respuesta aquí","Calificar"),
-        if(_preguntaActual.darTipoDePregunta ==  TipoDePregunta.abierta) // Si es pregunta ABIERTA hay 2 if pq no me deja poner corchetes y no entiendo pq, pero asi funciona
-          new Column(
-          children: <Widget>[
-            new Flexible (
-              flex: 1,
-           child: new PreguntaUI(new Text(textoDeLaPregunta)), // Pregunta
-            ),
-           new Expanded(
-             flex: 2,
-             
-             child: textInput,
-           )
-           
-          ],
-        ),
-        
-        overlayVisible == true ? new OverlayCorectoIncorrecto(
-          esCorrecto, 
-          () {
-             
-             if(quiz.darCantidadDePreguntas == numeroDePreguntaActual+1){ // Verifica que aun queden preguntas por responder 
-              Navigator.of(context).pushAndRemoveUntil(new MaterialPageRoute(builder: (BuildContext context) => new PaginaPuntuacion(quiz.darPuntajeActual, quiz.darCantidadDePreguntas)), (Route route) => route == null); // Avanza a la pagina de puntuacion
-              return;
-            }
-           
-            _preguntaActual = quiz.siguientePregunta;
-            this.setState((){ // Esta parte actualizara la pregunta cuando se avanze 
-              overlayVisible = false;
-              textoDeLaPregunta = _preguntaActual.darPregunta;
-              numeroDePreguntaActual = quiz.darNumeroDePreguntaActual;
-            });
-          }): new Container()
+            : new Container()
       ],
     );
   }

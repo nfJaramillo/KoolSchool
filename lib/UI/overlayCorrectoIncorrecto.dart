@@ -7,8 +7,9 @@ class OverlayCorectoIncorrecto extends StatefulWidget {
 
   final bool _isCorrect;
   final VoidCallback _onTap;
+  final String _feedback;
 
-  OverlayCorectoIncorrecto(this._isCorrect, this._onTap);
+  OverlayCorectoIncorrecto(this._isCorrect, this._onTap, this._feedback);
 
   @override
   State createState() => new CorrectWrongOverlayState();
@@ -58,7 +59,7 @@ class CorrectWrongOverlayState extends State<OverlayCorectoIncorrecto> with Sing
             new Padding(
               padding: new EdgeInsets.only(bottom: 20.0),
             ),
-            new Text(widget._isCorrect == true ? "Correcto!" : "Incorrecto!", style: new TextStyle(color: Colors.white, fontSize: 30.0),)
+            new Text(widget._isCorrect == true ? "Correcto!" + "\n" + widget._feedback : "Incorrecto!" + "\n" + widget._feedback, style: new TextStyle(color: Colors.white, fontSize: 30.0),)
           ],
         ),
       ),
