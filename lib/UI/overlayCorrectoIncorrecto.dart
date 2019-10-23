@@ -59,7 +59,7 @@ class CorrectWrongOverlayState extends State<OverlayCorectoIncorrecto> with Sing
             new Padding(
               padding: new EdgeInsets.only(bottom: 20.0),
             ),
-            new Text(widget._isCorrect == true ? "Correcto!" + "\n" + widget._feedback : "Incorrecto!" + "\n" + widget._feedback, style: new TextStyle(color: Colors.white, fontSize: MediaQuery.of(context).size.width * .04), textAlign: TextAlign.center,)
+            new Text(widget._isCorrect == true ? "¡Correcto!" + "\n" + widget._feedback : "¡Incorrecto!" + "\n" + widget._feedback, style: new TextStyle(color: Colors.white, fontSize: MediaQuery.of(context).size.width * .04), textAlign: TextAlign.center,)
           ],
         ),
       ),
