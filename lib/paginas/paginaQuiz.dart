@@ -8,8 +8,26 @@ import 'package:hello_world/utils/pregunta.dart';
 import 'package:hello_world/utils/quiz.dart';
 
 class PaginaQuiz extends StatefulWidget {
-  @override
-  State createState() => new PaginaEstadoQuiz();
+
+  //----------------------------------------------
+  // ATRIBUTOS
+  //----------------------------------------------
+
+  /// Atributo que modela el quiz de la clase 
+  final Quiz _quiz;
+
+  //----------------------------------------------
+  // Constructor
+  //----------------------------------------------
+  /// Constructor que recibe un quiz como parametro
+  PaginaQuiz(this._quiz);
+
+
+  //----------------------------------------------
+  // METODOS
+  //----------------------------------------------
+   @override
+  State createState() => new PaginaEstadoQuiz(_quiz);
 }
 
 class PaginaEstadoQuiz extends State<PaginaQuiz> {
@@ -21,71 +39,7 @@ class PaginaEstadoQuiz extends State<PaginaQuiz> {
   Pregunta _preguntaActual;
 
   /// Atributo que corre un nuevo quiz con ciertas preguntas
-  Quiz quiz = new Quiz([
-    new Pregunta.vofYabierta(
-      "¿Miguel es un niño Indígena?",
-      "Verdadero",
-      TipoDePregunta.vOF,
-      [" Muy Bien Has Acertado ", " Que mal, estudia mejor la próxima vez"],
-    ),
-    new Pregunta.multiple(
-      "¿Miguel quiere acompañar a su papá en un viaje a?",
-      "a",
-      TipoDePregunta.multiple,
-      ["Bogotá", "Cali", "Medellin", "Cartagena"],
-      [
-        "Muy Bien! Efectivamente quieren ir a la Capital de nuestra Colombia ",
-        "Oh oh! No es la correcta, nunca hablamos de Cali !",
-        "Oh oh! No es la correcta, nunca hablamos de Medellín !",
-        "Oh oh! No es la correcta, nunca hablamos de Cartagena !",
-      ],
-    ),
-    new Pregunta.vofYabierta(
-      "¿Cuantos días se demoran en llegar Bogotá? (Escriba solo el numero de dias)",
-      "5",
-      TipoDePregunta.abierta,
-      [
-        "Asi es! son 5 días! ",
-        "Parece que no recordaste bien el número, puedes anotar en un cuaderno, escribir nos ayuda a memorizar !",
-      ],
-    ),
-    new Pregunta.vofYabierta(
-      "¿El miércoles la gente del pueblo se reune para ver la llegada y la salida del avión?",
-      "Falso",
-      TipoDePregunta.vOF,
-      [
-        " Es cierto porque no es el miércoles sino otro día! ",
-        " Oh no! Entendiste el día que no era",
-      ],
-    ),
-    new Pregunta.vofYabierta(
-      "¿El avión de la Pedrera a Leticia se demora 10 horas?",
-      "Falso",
-      TipoDePregunta.vOF,
-      [
-        " Así es! Son menos de 10 horas !",
-        " Parece que no recordaste bien el número, puedes anotar en un cuaderno, escribir nos ayuda a memorizar !",
-      ],
-    ),
-    new Pregunta.vofYabierta(
-      "¿Para viajar de la ciudad de Leticia hacia Bogotá deberan tomar otro avión?",
-      "Verdadero",
-      TipoDePregunta.vOF,
-      [
-        " Vaya! Que buen lector eres, efectivamente tienen que tomar otro vuelo",
-         "Oh no! no recordaste que deben tomar otro vuelo, revisa la lectura con cuidado! ",
-      ],
-    ),
-    new Pregunta.vofYabierta(
-      "¿Miguel, su papá y su tío pasan la noche en un hotel pequeño?",
-      "Verdadero",
-      TipoDePregunta.vOF,
-      [
-        "Sin duda, el hotel que escogieron era un hotel pequeño",
-        "Oh no! tal vez no te fijaste bien en el adjetivo, revisa la lectura con cuidado",
-      ],
-    )
-  ]);
+  Quiz quiz;
 
   /// Atributo con el texto dela pregunta actual  z
   String textoDeLaPregunta;
@@ -104,6 +58,16 @@ class PaginaEstadoQuiz extends State<PaginaQuiz> {
 
   /// Atributo que guarda el text input de las preguntas abiertas
   TextInputUI textInput;
+
+
+  //----------------------------------------------
+  // Constructor
+  //----------------------------------------------
+  /// Constructor que recibe un quiz como parametro
+  PaginaEstadoQuiz(Quiz pQuiz)
+  {
+    quiz = pQuiz;
+  }
 
   //----------------------------------------------
   // METODOS
