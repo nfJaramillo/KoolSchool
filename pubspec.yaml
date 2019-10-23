@@ -24,6 +24,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
   flutter_plugin_pdf_viewer: 1.0.7
+  file_picker: ^1.4.0
 
 
 dev_dependencies:
@@ -46,6 +47,9 @@ flutter_icons:
 flutter:
   assets:
     - assets/Texto Lenguaje Grado 1.pdf  
+    - assets/Sentidos.pdf
+    - assets/LunasJupiter.pdf
+    - assets/Vacunas.pdf
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in

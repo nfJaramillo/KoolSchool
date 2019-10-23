@@ -76,7 +76,7 @@ class PaginaMenu extends StatelessWidget
   ]);
 
   /// Atributo que corre un nuevo quiz con ciertas preguntas
-  Quiz _quiz2 = new Quiz([
+  final Quiz _quiz2 = new Quiz([
     new Pregunta.vofYabierta(
       "¿Galileo Galilei identificó los primeros cuatro satélites de Júpiter?",
       "Verdadero",
@@ -120,7 +120,7 @@ class PaginaMenu extends StatelessWidget
   
   ]);
 
-  Quiz _quiz3 = new Quiz([
+  final Quiz _quiz3 = new Quiz([
     new Pregunta.multiple(
       "¿Cuál era la principal causa de muerte en Turquía en el siglo XVII?",
       "a",
@@ -168,7 +168,7 @@ class PaginaMenu extends StatelessWidget
     ),
   ]);
 
-  Quiz _quiz4 = new Quiz([
+  final Quiz _quiz4 = new Quiz([
     new Pregunta.multiple(
       "¿Con cual sentido puedes escuchar los sonidos?",
       "a",
