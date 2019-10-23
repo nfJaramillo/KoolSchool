@@ -89,7 +89,7 @@ class PaginaMenu extends StatelessWidget
       TipoDePregunta.multiple,
       ["30","15","63","2"],
       [
-        "¡Oh oh! ¡No es la correcta!"
+        "¡Oh oh! ¡No es la correcta!",
         "¡Oh oh! ¡No es la correcta!",
         "¡Muy Bien! Efectivamente se han descubierto 63 lunas",
         "¡Oh oh! No es la correcta!",
@@ -101,7 +101,7 @@ class PaginaMenu extends StatelessWidget
       TipoDePregunta.multiple,
       ["Venus","Júpiter","Marte","La Tierra"],
       [
-        "¡Oh oh! ¡No es la correcta!"
+        "¡Oh oh! ¡No es la correcta!",
         "¡Oh oh! ¡No es la correcta!",
         "¡Muy Bien! Efectivamente Júpiter tiene el mayor número de satélites de nuestro sistema solar ",
         "¡Oh oh! No es la correcta!",
@@ -120,7 +120,121 @@ class PaginaMenu extends StatelessWidget
   
   ]);
 
+  Quiz _quiz3 = new Quiz([
+    new Pregunta.multiple(
+      "¿Cuál era la principal causa de muerte en Turquía en el siglo XVII?",
+      "a",
+      TipoDePregunta.multiple,
+      ["Viruela", "Sarampión", "Polio", "Malaria"],
+      [
+        "Muy Bien! Efectivamente la viruela era la principal causa de muerte! ",
+        "Oh oh! No es la correcta!",
+        "Oh oh! No es la correcta!",
+        "Oh oh! No es la correcta!",
+      ],
+    ),
+    new Pregunta.multiple(
+      "¿En qué país se intentó utilizar la vacuna a mitad del siglo XVIII?",
+      "b",
+      TipoDePregunta.multiple,
+      ["Turquía", "Inglaterra", "Alemania", "Austria"],
+      [
+        "Oh oh! No es la correcta!",
+        "Muy Bien! Efectivamente fue en Inglaterra",
+        "Oh oh! No es la correcta!",
+        "Oh oh! No es la correcta!",
+      ],
+    ),
+    new Pregunta.multiple(
+      "¿¿Cuál fue el nombre del médico inglés que utilizó la vacuna en un niño de ocho años?",
+      "c",
+      TipoDePregunta.multiple,
+      ["Jhon Smith", "Paul Albarn", "Edward Jenner", "Jhon Armstrong"],
+      [
+        "Oh oh! No es la correcta!",
+        "Oh oh!, no es la correcta",
+        "Muy Bien! Efectivamente fue Edward Jenner",
+        "Oh oh! No es la correcta!",
+      ],
+    ),
+    new Pregunta.vofYabierta(
+      "¿Si a un organismo se le inyectaba la viruela de las ubres de las vacas, y luego la viruela negra genera inmunidad?",
+      "Verdadero",
+      TipoDePregunta.vOF,
+      [
+        " Es cierto y esa fue la base del desarollo de las vacunas ",
+        " Oh no! No es la correcta",
+      ],
+    ),
+  ]);
 
+  Quiz _quiz4 = new Quiz([
+    new Pregunta.multiple(
+      "¿Con cual sentido puedes escuchar los sonidos?",
+      "a",
+      TipoDePregunta.multiple,
+      ["Oído", "Olfato", "Tacto", "Gusto"],
+      [
+        "Muy Bien! Efectivamente escuchamos con nuestro oído! ",
+        "Oh oh! No es la correcta!",
+        "Oh oh! No es la correcta!",
+        "Oh oh! No es la correcta!",
+      ],
+    ),
+    new Pregunta.multiple(
+      "¿Con cual sentido puedes ver lo que te rodea?",
+      "b",
+      TipoDePregunta.multiple,
+      ["Oído", "Vista", "Tacto", "Olfato"],
+      [
+        "Oh oh! No es la correcta!",
+        "Muy Bien! Efectivamente vemos con la vista!",
+        "Oh oh! No es la correcta!",
+        "Oh oh! No es la correcta!",
+      ],
+    ),
+    new Pregunta.multiple(
+      "¿Con cual sentido puedes distinguir la temperatura y textura de las cosas?",
+      "c",
+      TipoDePregunta.multiple,
+      ["Vista", "Oído", "Tacto", "Gusto"],
+      [
+        "Oh oh! No es la correcta!",
+        "Oh oh!, no es la correcta",
+        "Muy Bien! Efectivamente con el tacto! también podemos distinguir el tamaño y la consistencia de las cosas!",
+        "Oh oh! No es la correcta!",
+      ],
+    ),
+    new Pregunta.multiple(
+      "¿Con cual sentido puedes diferenciar los sabores de los alimentos?",
+      "d",
+      TipoDePregunta.multiple,
+      ["Vista", "Oído", "Tacto", "Gusto"],
+      [
+        "Oh oh! No es la correcta!",
+        "Oh oh!, no es la correcta",
+        "Oh oh!, no es la correcta",
+        "Muy Bien! Efectivamente con el gusto",
+      ],
+    ),
+    new Pregunta.multiple(
+      "¿Con cual sentido puedes percibir los olores?",
+      "c",
+      TipoDePregunta.multiple,
+      ["Vista", "Oído", "Olfato", "Gusto"],
+      [
+        "Oh oh! No es la correcta!",
+        "Oh oh!, no es la correcta",
+        "Muy Bien! Efectivamente con el olfato",
+        "Oh oh!, no es la correcta",
+      ],
+    ),
+    
+  ]);
+
+  //----------------------------------------------
+  // ATRIBUTOS QUIZ
+  //----------------------------------------------
 
 
 
@@ -149,11 +263,39 @@ class PaginaMenu extends StatelessWidget
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                new BotonUI(Colors.purple[300], new Text( "Lectura 2",
+                new BotonUI(Colors.amber, new Text( "Lectura 2",
                     style: TextStyle(
                         fontSize: 75, fontWeight: FontWeight.bold)), () =>
                     Navigator.of(context).push(new MaterialPageRoute(
                         builder: (BuildContext context) => new PaginaQuiz(_quiz2)))),
+                // Boton quiz
+              ],
+            ),
+             Padding(
+              padding:  EdgeInsets.all(MediaQuery.of(context).size.width * .02), // Añade espacio entre los textos
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                new BotonUI(Colors.purple[300], new Text( "Lectura 3",
+                    style: TextStyle(
+                        fontSize: 75, fontWeight: FontWeight.bold)), () =>
+                    Navigator.of(context).push(new MaterialPageRoute(
+                        builder: (BuildContext context) => new PaginaQuiz(_quiz3)))),
+                // Boton quiz
+              ],
+            ),
+             Padding(
+              padding:  EdgeInsets.all(MediaQuery.of(context).size.width * .02), // Añade espacio entre los textos
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                new BotonUI(Colors.blueAccent, new Text( "Lectura 4",
+                    style: TextStyle(
+                        fontSize: 75, fontWeight: FontWeight.bold)), () =>
+                    Navigator.of(context).push(new MaterialPageRoute(
+                        builder: (BuildContext context) => new PaginaQuiz(_quiz4)))),
                 // Boton quiz
               ],
             ),
