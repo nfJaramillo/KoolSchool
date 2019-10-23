@@ -54,6 +54,14 @@ class Quiz{
   {
     if(esCorrecto)
       _puntaje++;
+      
+  }
+
+  /// Metodo que reinicia el quiz
+  void reiniciarQuiz()
+  {
+    _puntaje = 0;
+    _contador = -1;
   }
 
 }

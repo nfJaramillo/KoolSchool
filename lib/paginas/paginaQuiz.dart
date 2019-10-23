@@ -67,6 +67,7 @@ class PaginaEstadoQuiz extends State<PaginaQuiz> {
   PaginaEstadoQuiz(Quiz pQuiz)
   {
     quiz = pQuiz;
+    quiz.reiniciarQuiz();
   }
 
   //----------------------------------------------

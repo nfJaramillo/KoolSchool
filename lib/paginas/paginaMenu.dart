@@ -75,6 +75,51 @@ class PaginaMenu extends StatelessWidget
     )
   ]);
 
+  /// Atributo que corre un nuevo quiz con ciertas preguntas
+  Quiz _quiz2 = new Quiz([
+    new Pregunta.vofYabierta(
+      "¿Galileo Galilei identificó los primeros cuatro satélites de Júpiter?",
+      "Verdadero",
+      TipoDePregunta.vOF,
+      [" Muy Bien Has Acertado ", " Qué mal, estudia mejor la próxima vez"],
+    ),
+    new Pregunta.multiple(
+      "¿Cuantas lunas se han descubierto en Júpiter?",
+      "c",
+      TipoDePregunta.multiple,
+      ["30","15","63","2"],
+      [
+        "¡Oh oh! ¡No es la correcta!"
+        "¡Oh oh! ¡No es la correcta!",
+        "¡Muy Bien! Efectivamente se han descubierto 63 lunas",
+        "¡Oh oh! No es la correcta!",
+      ],
+    ),
+     new Pregunta.multiple(
+      "¿Cuál es el planeta con mayor número de satélites?",
+      "b",
+      TipoDePregunta.multiple,
+      ["Venus","Júpiter","Marte","La Tierra"],
+      [
+        "¡Oh oh! ¡No es la correcta!"
+        "¡Oh oh! ¡No es la correcta!",
+        "¡Muy Bien! Efectivamente Júpiter tiene el mayor número de satélites de nuestro sistema solar ",
+        "¡Oh oh! No es la correcta!",
+      ],
+    ),
+    
+    new Pregunta.vofYabierta(
+      "¿El tamaño de Júpiter es mayor que el de la tierra?",
+      "Verdadero",
+      TipoDePregunta.vOF,
+      [
+        "¡Correcto! Júpiter es más grande que nuestro planeta Tierra",
+        " Parece que no recordaste bien el número, puedes anotar en un cuaderno, escribir nos ayuda a memorizar !",
+      ],
+    )
+  
+  ]);
+
 
 
 
@@ -108,7 +153,7 @@ class PaginaMenu extends StatelessWidget
                     style: TextStyle(
                         fontSize: 75, fontWeight: FontWeight.bold)), () =>
                     Navigator.of(context).push(new MaterialPageRoute(
-                        builder: (BuildContext context) => new PaginaQuiz(_quiz1)))),
+                        builder: (BuildContext context) => new PaginaQuiz(_quiz2)))),
                 // Boton quiz
               ],
             ),
