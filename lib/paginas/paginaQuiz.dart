@@ -26,7 +26,7 @@ class PaginaEstadoQuiz extends State<PaginaQuiz> {
       "¿Miguel es un niño Indígena?",
       "Verdadero",
       TipoDePregunta.vOF,
-      [" Muy Bien Has Acertado ", " Que mal, estudia mejor la proxima vez"],
+      [" Muy Bien Has Acertado ", " Que mal, estudia mejor la próxima vez"],
     ),
     new Pregunta.multiple(
       "¿Miguel quiere acompañar a su papá en un viaje a?",
@@ -36,12 +36,12 @@ class PaginaEstadoQuiz extends State<PaginaQuiz> {
       [
         "Muy Bien! Efectivamente quieren ir a la Capital de nuestra Colombia ",
         "Oh oh! No es la correcta, nunca hablamos de Cali !",
-        "Oh oh! No es la correcta, nunca hablamos de Medellin !",
+        "Oh oh! No es la correcta, nunca hablamos de Medellín !",
         "Oh oh! No es la correcta, nunca hablamos de Cartagena !",
       ],
     ),
     new Pregunta.vofYabierta(
-      "¿Cuantos dias se demoran en llegar Bogotá? (Escriba solo el numero de dias)",
+      "¿Cuantos días se demoran en llegar Bogotá? (Escriba solo el numero de dias)",
       "5",
       TipoDePregunta.abierta,
       [
@@ -64,7 +64,7 @@ class PaginaEstadoQuiz extends State<PaginaQuiz> {
       TipoDePregunta.vOF,
       [
         " Así es! Son menos de 10 horas !",
-        " Parece que no recordaste bien el numero, puedes anotar en un cuaderno, escribir nos ayuda a memorizar !",
+        " Parece que no recordaste bien el número, puedes anotar en un cuaderno, escribir nos ayuda a memorizar !",
       ],
     ),
     new Pregunta.vofYabierta(
