@@ -1,7 +1,8 @@
+import 'package:Kool_School/UI/botonUI.dart';
+import 'package:Kool_School/paginas/paginaMenu.dart';
+import 'package:Kool_School/paginas/paginaPdf.dart';
 import 'package:flutter/material.dart';
-import 'package:hello_world/UI/botonUI.dart';
-import 'package:hello_world/paginas/paginaPdf.dart';
-import 'package:hello_world/paginas/paginaMenu.dart';
+
 import 'package:flutter/services.dart';
 
 class PaginaInicial extends StatelessWidget{

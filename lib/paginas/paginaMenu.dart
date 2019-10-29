@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:hello_world/UI/botonUI.dart';
-import 'package:hello_world/paginas/paginaQuiz.dart';
-import 'package:hello_world/utils/pregunta.dart';
-import 'package:hello_world/utils/quiz.dart';
+import 'package:Kool_School/UI/botonUI.dart';
+import 'package:Kool_School/paginas/paginaQuiz.dart';
+import 'package:Kool_School/utils/pregunta.dart';
+import 'package:Kool_School/utils/quiz.dart';
 
 class PaginaMenu extends StatelessWidget
 {

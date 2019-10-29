@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:hello_world/UI/botonUI.dart';
-import 'package:hello_world/UI/overlayCorrectoIncorrecto.dart';
-import 'package:hello_world/UI/preguntaUI.dart';
-import 'package:hello_world/UI/textInputUI.dart';
-import 'package:hello_world/paginas/paginaPuntuacion.dart';
-import 'package:hello_world/utils/pregunta.dart';
-import 'package:hello_world/utils/quiz.dart';
+import 'package:Kool_School/UI/botonUI.dart';
+import 'package:Kool_School/UI/overlayCorrectoIncorrecto.dart';
+import 'package:Kool_School/UI/preguntaUI.dart';
+import 'package:Kool_School/UI/textInputUI.dart';
+import 'package:Kool_School/paginas/paginaPuntuacion.dart';
+import 'package:Kool_School/utils/pregunta.dart';
+import 'package:Kool_School/utils/quiz.dart';
 
 class PaginaQuiz extends StatefulWidget {
 

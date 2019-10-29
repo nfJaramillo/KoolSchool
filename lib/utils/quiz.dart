@@ -1,4 +1,4 @@
-import 'package:hello_world/utils/pregunta.dart';
+import 'package:Kool_School/utils/pregunta.dart';
 
 class Quiz{
 

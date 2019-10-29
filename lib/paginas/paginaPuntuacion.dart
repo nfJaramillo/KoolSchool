@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hello_world/paginas/paginaInicial.dart';
+import 'package:Kool_School/paginas/paginaInicial.dart';
 
 
 class PaginaPuntuacion extends StatelessWidget {

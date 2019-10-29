@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_plugin_pdf_viewer/flutter_plugin_pdf_viewer.dart';
-import 'package:hello_world/UI/botonUI.dart';
+import 'package:Kool_School/UI/botonUI.dart';
 
 import 'paginaFilePicker.dart';
 

@@ -1,5 +1,6 @@
+import 'package:Kool_School/paginas/paginaInicial.dart';
 import 'package:flutter/material.dart';
-import 'package:hello_world/paginas/paginaInicial.dart';
+
 
 
 void main(){
