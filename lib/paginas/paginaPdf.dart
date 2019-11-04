@@ -1,3 +1,6 @@
+import 'package:Kool_School/paginas/paginaLecturaPdf.dart';
+import 'package:Kool_School/paginas/paginaMenu.dart';
+import 'package:Kool_School/paginas/paginaQuiz.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_plugin_pdf_viewer/flutter_plugin_pdf_viewer.dart';
@@ -47,7 +50,7 @@ class PaginaPdfEstado extends State<PaginaPdf>
   cargarPdf(int pNumeroPdf) async {
     
      _documento = await PDFDocument.fromAsset(_nomrbresPDF[pNumeroPdf]);
-     Navigator.of(context).push(new MaterialPageRoute(builder: (context) => PDFViewer(document: _documento)));
+     Navigator.of(context).push(new MaterialPageRoute(builder: (context) => new PaginaLecturaPdf(_documento,( () =>Navigator.of(context).push (new MaterialPageRoute(builder: (BuildContext context) => new PaginaQuiz(quiz[pNumeroPdf])))))));
   }
  
 
