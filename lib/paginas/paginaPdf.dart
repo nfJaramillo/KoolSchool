@@ -49,6 +49,7 @@ class PaginaPdfEstado extends State<PaginaPdf>
      _documento = await PDFDocument.fromAsset(_nomrbresPDF[pNumeroPdf]);
      Navigator.of(context).push(new MaterialPageRoute(builder: (context) => PDFViewer(document: _documento)));
   }
+ 
 
   /// Metodo que dibujara el visor de pdf junto con un titilo y ayuda de la libreria
   @override
@@ -62,28 +63,10 @@ class PaginaPdfEstado extends State<PaginaPdf>
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
 
+                    for(int i =0; i<_nomrbresPDF.length;i++)
+                   // Padding(padding:  EdgeInsets.all(MediaQuery.of(context).size.width * .02),), 
+                    new BotonUI(Colors.amber, new Text(_nomrbresPDF[i].substring(7,_nomrbresPDF[i].length-4)), () => cargarPdf(i)),
                     
-                    
-
-
-                     Padding(
-              padding:  EdgeInsets.all(MediaQuery.of(context).size.width * .02), // Añade espacio entre los textos
-            ),
-                    new BotonUI(Colors.green, new Text("Historia Indigena (Español 1°)"), () => cargarPdf(0)),
-                    
-                     Padding(
-              padding:  EdgeInsets.all(MediaQuery.of(context).size.width * .015), // Añade espacio entre los textos
-            ),
-                    new BotonUI(Colors.indigo, new Text("Las lunas de jupiter (Ciencias 4°)"), () => cargarPdf(1)),
-                   
-                    Padding(
-              padding:  EdgeInsets.all(MediaQuery.of(context).size.width * .015), // Añade espacio entre los textos
-            ),
-                  new BotonUI(Colors.blue, new Text("Las vacunas (Ciencias 5°)"), () => cargarPdf(2)),
-                          Padding(
-              padding:  EdgeInsets.all(MediaQuery.of(context).size.width * .015), // Añade espacio entre los textos
-            ),
-                  new BotonUI(Colors.black54, new Text("Los sentidos (Naturales 2°)"), () => cargarPdf(3)),
                      
                      
                        Padding(
