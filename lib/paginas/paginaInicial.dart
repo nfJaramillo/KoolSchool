@@ -13,6 +13,7 @@ class PaginaInicial extends StatelessWidget{
     SystemChrome.setPreferredOrientations([
     DeviceOrientation.landscapeLeft,
     DeviceOrientation.landscapeRight,
+    
     ]);
 
     return new Material(color: Colors.yellow, // Un material es como una hoja de papel encima de la pantalla

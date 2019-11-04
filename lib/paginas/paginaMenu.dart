@@ -78,7 +78,7 @@ class PaginaMenu extends StatelessWidget
 }
 
 //----------------------------------------------
-  // ATRIBUTOS QUIZ (ESTABN FUERA E LA CLASE PARA QUE SEAN GLOBALES)
+  // ATRIBUTOS QUIZ (ESTAN FUERA DE LA CLASE PARA QUE SEAN GLOBALES)
   //----------------------------------------------
 
 

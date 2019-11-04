@@ -36,7 +36,7 @@ class PaginaPdfEstado extends State<PaginaPdf>
   /// Constructor que llama al metodo cargarPdf(). Esto para que solo se llame una vez cuando de crea esta clase
   PaginaPdfEstado()
   {
-    _nomrbresPDF = ["assets/Historia Indigena (Español 1°).pdf",'assets/Las lunas de jupiter (Ciencias 4°).pdf','assets/Las vacunas (Ciencias 5°).pdf','assets/Los sentidos (Naturales 2°).pdf'];
+    _nomrbresPDF = ["assets/Historia Indigena (Español 1°).pdf",'assets/Las lunas de jupiter (Ciencias 4°).pdf','assets/Las vacunas (Ciencias 5°).pdf','assets/Los sentidos (Naturales 2°).pdf',"aaaaaaaaaaaaaaaaaaaaaaa"];
   }
   
 
@@ -52,40 +52,34 @@ class PaginaPdfEstado extends State<PaginaPdf>
      _documento = await PDFDocument.fromAsset(_nomrbresPDF[pNumeroPdf]);
      Navigator.of(context).push(new MaterialPageRoute(builder: (context) => new PaginaLecturaPdf(_documento,( () =>Navigator.of(context).push (new MaterialPageRoute(builder: (BuildContext context) => new PaginaQuiz(quiz[pNumeroPdf])))))));
   }
- 
 
   /// Metodo que dibujara el visor de pdf junto con un titilo y ayuda de la libreria
   @override
   Widget build(BuildContext context) {
    return Scaffold(
         backgroundColor: Colors.redAccent,
-        body: Center(
+        body: SingleChildScrollView(
           
-          child: Builder(
-            builder: (context) => Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
+          child: ListView(
+                  //mainAxisAlignment: MainAxisAlignment.center,
+                  shrinkWrap: true,
+                  children: [
 
                     for(int i =0; i<_nomrbresPDF.length;i++)
-                   // Padding(padding:  EdgeInsets.all(MediaQuery.of(context).size.width * .02),), 
-                    new BotonUI(Colors.amber, new Text(_nomrbresPDF[i].substring(7,_nomrbresPDF[i].length-4)), () => cargarPdf(i)),
-                    
-                     
-                     
+                      //Padding(padding:  EdgeInsets.all(MediaQuery.of(context).size.width * .02)),
+                       new BotonUI3(Colors.amber, new Text(_nomrbresPDF[i].substring(7,_nomrbresPDF[i].length-4)), () => cargarPdf(i)),
+           
                        Padding(
               padding:  EdgeInsets.all(MediaQuery.of(context).size.width * .015), // Añade espacio entre los textos
             ),
-                   new BotonUI(Colors.limeAccent, new Text("Otros"), () => Navigator.of(context).push(new MaterialPageRoute( builder: (BuildContext context) => new FilePickerDemo()))),
+                   new BotonUI2(Colors.limeAccent, new Text("Otros"), () => Navigator.of(context).push(new MaterialPageRoute( builder: (BuildContext context) => new FilePickerDemo()))),
                         Padding(
               padding:  EdgeInsets.all(MediaQuery.of(context).size.width * .015), // Añade espacio entre los textos
             ),
                   ],
                 ),
           ),
-        ),
-
-    
-    );
+        );
   }
   
 }
