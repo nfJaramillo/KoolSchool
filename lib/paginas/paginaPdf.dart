@@ -36,7 +36,7 @@ class PaginaPdfEstado extends State<PaginaPdf>
   /// Constructor que llama al metodo cargarPdf(). Esto para que solo se llame una vez cuando de crea esta clase
   PaginaPdfEstado()
   {
-    _nomrbresPDF = ["assets/Historia Indigena (Español 1°).pdf",'assets/Las lunas de jupiter (Ciencias 4°).pdf','assets/Las vacunas (Ciencias 5°).pdf','assets/Los sentidos (Naturales 2°).pdf',"aaaaaaaaaaaaaaaaaaaaaaa"];
+    _nomrbresPDF = ["assets/Historia Indigena (Español 1°).pdf",'assets/Las lunas de jupiter (Ciencias 4°).pdf','assets/Las vacunas (Ciencias 5°).pdf','assets/Los sentidos (Naturales 2°).pdf'];
   }
   
 
@@ -63,6 +63,7 @@ class PaginaPdfEstado extends State<PaginaPdf>
           child: ListView(
                   //mainAxisAlignment: MainAxisAlignment.center,
                   shrinkWrap: true,
+                  physics: ClampingScrollPhysics(),
                   children: [
 
                     for(int i =0; i<_nomrbresPDF.length;i++)

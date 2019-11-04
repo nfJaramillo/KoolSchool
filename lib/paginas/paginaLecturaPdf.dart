@@ -16,25 +16,21 @@ class PaginaLecturaPdf extends StatelessWidget
   Widget build(BuildContext context) {
    return Scaffold(
         appBar: AppBar(
-          title:  Text('Example'), 
+          title:  Text('Regresar'), 
           
           actions: <Widget>[
 
             // text
             new Center(
              child: new Text(
-              "Quiz    ",  textAlign: TextAlign.center,
-               style: new TextStyle(
-               fontSize: MediaQuery.of(context).size.width * .016,
-              color: Colors.white,
-              fontWeight: FontWeight.bold
+              "Ir al Quiz    ",  style: Theme.of(context).textTheme.title.merge(TextStyle(color: Colors.white)), 
               ),
              ),
-            ),
+            
 
             // action button
             IconButton(
-              icon: Icon(Icons.arrow_forward),
+              icon: Icon(Icons.arrow_forward, size: 26.5),
               onPressed: () => _onTap(),
             ),
          
