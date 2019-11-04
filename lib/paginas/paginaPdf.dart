@@ -23,10 +23,9 @@ class PaginaPdfEstado extends State<PaginaPdf>
 
   /// Atributo que tendra al documento pdf
   PDFDocument _documento;
+  /// Lista de las rutas de los pdf
+  List <String> _nomrbresPDF;
 
-  /// Atributo booleano que dira si se esta cargando el documento o no
-  bool _cargando = false;
-  
   //----------------------------------------------
   // CONSTRUCTOR
   //----------------------------------------------
@@ -34,43 +33,21 @@ class PaginaPdfEstado extends State<PaginaPdf>
   /// Constructor que llama al metodo cargarPdf(). Esto para que solo se llame una vez cuando de crea esta clase
   PaginaPdfEstado()
   {
-    cargarPdf();
+    _nomrbresPDF = ["assets/Historia Indigena (Español 1°).pdf",'assets/Las lunas de jupiter (Ciencias 4°).pdf','assets/Las vacunas (Ciencias 5°).pdf','assets/Los sentidos (Naturales 2°).pdf'];
   }
-
   
+
 
   //----------------------------------------------
   // METODOS
   //----------------------------------------------
 
-  cambiarTexto1(String txt) async{
-    
-      _documento = await PDFDocument.fromAsset('assets/Sentidos.pdf'); 
-    
-      PDFViewer(document: _documento);
-  }
-  cambiarTexto2(String txt) async{
-    
-      _documento = await PDFDocument.fromAsset('assets/LunasJupiter.pdf'); 
-    
-      PDFViewer(document: _documento);
-  }
-  cambiarTexto3(String txt) async{
-    
-      _documento = await PDFDocument.fromAsset('assets/Vacunas.pdf'); 
-    
-      PDFViewer(document: _documento);
-  }
 
   /// Metodo que carga el archivo desde un asset y mantiene el thread ahi mientras lo hace. En ese tiempo aparece el circulo de carga azul en la pantalla
-  cargarPdf() async {
+  cargarPdf(int pNumeroPdf) async {
     
-     
-     _documento = await PDFDocument.fromAsset('assets/Texto Lenguaje Grado 1.pdf');
-
-    setState(() {
-      _cargando = false; 
-    });
+     _documento = await PDFDocument.fromAsset(_nomrbresPDF[pNumeroPdf]);
+     Navigator.of(context).push(new MaterialPageRoute(builder: (context) => PDFViewer(document: _documento)));
   }
 
   /// Metodo que dibujara el visor de pdf junto con un titilo y ayuda de la libreria
@@ -84,28 +61,29 @@ class PaginaPdfEstado extends State<PaginaPdf>
             builder: (context) => Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
+
+                    
+                    
+
+
                      Padding(
               padding:  EdgeInsets.all(MediaQuery.of(context).size.width * .02), // Añade espacio entre los textos
             ),
-                    new BotonUI(Colors.green, new Text("Historia Indigena (Español 1°)"), () => Navigator.of(context).push(new MaterialPageRoute(builder: (context) =>
-                                      PDFViewer(document: _documento)))),
-                    
+                    new BotonUI(Colors.green, new Text("Historia Indigena (Español 1°)"), () => cargarPdf(0)),
                     
                      Padding(
               padding:  EdgeInsets.all(MediaQuery.of(context).size.width * .015), // Añade espacio entre los textos
             ),
-                    new BotonUI(Colors.indigo, new Text("Las lunas de jupiter (Ciencias 4°)"), () => Navigator.of(context).push(new MaterialPageRoute(builder: (context) =>cambiarTexto2('LunasJupiter')))),
+                    new BotonUI(Colors.indigo, new Text("Las lunas de jupiter (Ciencias 4°)"), () => cargarPdf(1)),
                    
                     Padding(
               padding:  EdgeInsets.all(MediaQuery.of(context).size.width * .015), // Añade espacio entre los textos
             ),
-                  new BotonUI(Colors.blue, new Text("Las vacunas (Ciencias 5°)"), () => Navigator.of(context).push(new MaterialPageRoute(builder: (context) =>
-                                       cambiarTexto3('Vacunas')))),
+                  new BotonUI(Colors.blue, new Text("Las vacunas (Ciencias 5°)"), () => cargarPdf(2)),
                           Padding(
               padding:  EdgeInsets.all(MediaQuery.of(context).size.width * .015), // Añade espacio entre los textos
             ),
-                  new BotonUI(Colors.black54, new Text("Los sentidos (Naturales 2°)"), () => Navigator.of(context).push(new MaterialPageRoute(builder: (context) =>
-                                      cambiarTexto1('Sentidos')))),
+                  new BotonUI(Colors.black54, new Text("Los sentidos (Naturales 2°)"), () => cargarPdf(3)),
                      
                      
                        Padding(
