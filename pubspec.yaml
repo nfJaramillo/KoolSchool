@@ -47,7 +47,11 @@ flutter_icons:
 flutter:
   assets:
     - assets/Las lunas de jupiter (Ciencias 4°).pdf
+<<<<<<< HEAD
     - assets/Historia Indigena (Español 1°).pdf
+=======
+    - assets/Historia Indigena (Español 1°).pdf  
+>>>>>>> 049ceef4c0e69a73edca8c618ce55f870985d53f
     - assets/Los sentidos (Naturales 2°).pdf
     - assets/Las vacunas (Ciencias 5°).pdf
 

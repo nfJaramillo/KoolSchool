@@ -40,7 +40,12 @@ class PaginaPdfEstado extends State<PaginaPdf>
   {
     _nomrbresPDF = ["assets/Historia Indigena (Español 1°).pdf",'assets/Las lunas de jupiter (Ciencias 4°).pdf','assets/Las vacunas (Ciencias 5°).pdf','assets/Los sentidos (Naturales 2°).pdf'];
   }
+<<<<<<< HEAD
 
+
+=======
+  
+>>>>>>> 049ceef4c0e69a73edca8c618ce55f870985d53f
 
 
   //----------------------------------------------
@@ -50,15 +55,22 @@ class PaginaPdfEstado extends State<PaginaPdf>
 
   /// Metodo que carga el archivo desde un asset y mantiene el thread ahi mientras lo hace. En ese tiempo aparece el circulo de carga azul en la pantalla
   cargarPdf(int pNumeroPdf) async {
+<<<<<<< HEAD
 
     _documento = await PDFDocument.fromAsset(_nomrbresPDF[pNumeroPdf]);
     Navigator.of(context).push(new MaterialPageRoute(builder: (context) => new PaginaLecturaPdf(_documento,( () =>Navigator.of(context).push (new MaterialPageRoute(builder: (BuildContext context) => new PaginaQuiz(quiz[pNumeroPdf])))))));
+=======
+    
+     _documento = await PDFDocument.fromAsset(_nomrbresPDF[pNumeroPdf]);
+     Navigator.of(context).push(new MaterialPageRoute(builder: (context) => new PaginaLecturaPdf(_documento,( () =>Navigator.of(context).push (new MaterialPageRoute(builder: (BuildContext context) => new PaginaQuiz(quiz[pNumeroPdf])))))));
+>>>>>>> 049ceef4c0e69a73edca8c618ce55f870985d53f
   }
 
   /// Metodo que dibujara el visor de pdf junto con un titilo y ayuda de la libreria
   @override
   Widget build(BuildContext context) {
     List<int> valuesForColor = [600, 700, 800, 900];
+<<<<<<< HEAD
     return Scaffold(
       backgroundColor: Colors.purple[600],
       body: SingleChildScrollView(
@@ -84,6 +96,33 @@ class PaginaPdfEstado extends State<PaginaPdf>
         ),
       ),
     );
+=======
+   return Scaffold(
+        backgroundColor: Colors.purple[600],
+        body: SingleChildScrollView(
+          
+          child: ListView(
+                  //mainAxisAlignment: MainAxisAlignment.center,
+                  shrinkWrap: true,
+                  physics: ClampingScrollPhysics(),
+                  children: [
+
+                    for(int i =0; i<_nomrbresPDF.length;i++)
+                      //Padding(padding:  EdgeInsets.all(MediaQuery.of(context).size.width * .02))
+                       new BotonUI3(Colors.amber[valuesForColor[i%4]], new Text(_nombresConOrtografia[i]), () => cargarPdf(i)),
+           
+                       Padding(
+              padding:  EdgeInsets.all(MediaQuery.of(context).size.width * .015), // Añade espacio entre los textos
+            ),
+                   new BotonUI2(Colors.purple[900], new Text("Otros"), () => Navigator.of(context).push(new MaterialPageRoute( builder: (BuildContext context) => new FilePickerDemo()))),
+                        Padding(
+              padding:  EdgeInsets.all(MediaQuery.of(context).size.width * .015), // Añade espacio entre los textos
+            ),
+                  ],
+                ),
+          ),
+        );
+>>>>>>> 049ceef4c0e69a73edca8c618ce55f870985d53f
   }
 
 }

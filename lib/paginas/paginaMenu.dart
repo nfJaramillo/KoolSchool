@@ -7,10 +7,84 @@ import 'package:Kool_School/utils/quiz.dart';
 
 class PaginaMenu extends StatelessWidget
 {
+
+  
+
+
+  Widget build(BuildContext context) {
+    return new Material(
+        color: Colors.cyan[600],
+        child: Column(
+          children: <Widget>[
+            Padding(
+              padding:  EdgeInsets.all(MediaQuery.of(context).size.width * .05), // Añade espacio entre los textos
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                new BotonUI(Colors.pink[600], new Text("Actividad 1: Historia Indígena",
+                    style: TextStyle(
+                        fontSize: 75, fontWeight: FontWeight.bold)), () =>
+                    Navigator.of(context).push(new MaterialPageRoute(
+                        builder: (BuildContext context) => new PaginaQuiz(quiz[0])))),
+                // Boton quiz
+              ],
+            ),
+            Padding(
+              padding:  EdgeInsets.all(MediaQuery.of(context).size.width * .02), // Añade espacio entre los textos
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                new BotonUI(Colors.pink[700], new Text( "Actividad 2: Lunas de Júpiter",
+                    style: TextStyle(
+                        fontSize: 75, fontWeight: FontWeight.bold)), () =>
+                    Navigator.of(context).push(new MaterialPageRoute(
+                        builder: (BuildContext context) => new PaginaQuiz(quiz[1])))),
+                // Boton quiz
+              ],
+            ),
+             Padding(
+              padding:  EdgeInsets.all(MediaQuery.of(context).size.width * .02), // Añade espacio entre los textos
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                new BotonUI(Colors.pink[800], new Text( "Actividad 3: Las Vacunas",
+                    style: TextStyle(
+                        fontSize: 75, fontWeight: FontWeight.bold)), () =>
+                    Navigator.of(context).push(new MaterialPageRoute(
+                        builder: (BuildContext context) => new PaginaQuiz(quiz[2])))),
+                // Boton quiz
+              ],
+            ),
+             Padding(
+              padding:  EdgeInsets.all(MediaQuery.of(context).size.width * .02), // Añade espacio entre los textos
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                new BotonUI(Colors.pink[900], new Text( "Actividad 4: Los Sentidos",
+                    style: TextStyle(
+                        fontSize: 75, fontWeight: FontWeight.bold)), () =>
+                    Navigator.of(context).push(new MaterialPageRoute(
+                        builder: (BuildContext context) => new PaginaQuiz(quiz[3])))),
+                // Boton quiz
+              ],
+            ),
+          ],
+        ),
+    );
+  }
+}
+
+//----------------------------------------------
+  // ATRIBUTOS QUIZ (ESTAN FUERA DE LA CLASE PARA QUE SEAN GLOBALES)
   //----------------------------------------------
-  // ATRIBUTOS QUIZ
-  //----------------------------------------------
-   final Quiz _quiz1 = new Quiz([
+
+
+ List<Quiz> quiz = [
+    new Quiz([
     new Pregunta.vofYabierta(
       "¿Miguel es un niño Indígena?",
       "Verdadero",
@@ -74,10 +148,10 @@ class PaginaMenu extends StatelessWidget
         "Oh no! tal vez no te fijaste bien en el adjetivo, revisa la lectura con cuidado",
       ],
     )
-  ]);
+  ]),
 
   /// Atributo que corre un nuevo quiz con ciertas preguntas
-  final Quiz _quiz2 = new Quiz([
+  new Quiz([
     new Pregunta.vofYabierta(
       "¿Galileo Galilei identificó los primeros cuatro satélites de Júpiter?",
       "Verdadero",
@@ -119,9 +193,9 @@ class PaginaMenu extends StatelessWidget
       ],
     )
   
-  ]);
+  ]),
 
-  final Quiz _quiz3 = new Quiz([
+  new Quiz([
     new Pregunta.multiple(
       "¿Cuál era la principal causa de muerte en Turquía en el siglo XVII?",
       "a",
@@ -167,9 +241,9 @@ class PaginaMenu extends StatelessWidget
         " Oh no! No es la correcta",
       ],
     ),
-  ]);
+  ]),
 
-  final Quiz _quiz4 = new Quiz([
+  new Quiz([
     new Pregunta.multiple(
       "¿Con cual sentido puedes escuchar los sonidos?",
       "a",
@@ -231,6 +305,7 @@ class PaginaMenu extends StatelessWidget
       ],
     ),
     
+<<<<<<< HEAD
   ]);
 
   //----------------------------------------------
@@ -319,3 +394,7 @@ class PaginaMenu extends StatelessWidget
     );
   }
 }
+=======
+  ])
+];
+>>>>>>> 049ceef4c0e69a73edca8c618ce55f870985d53f
