@@ -46,10 +46,10 @@ flutter_icons:
 # The following section is specific to Flutter.
 flutter:
   assets:
-    - assets/Texto Lenguaje Grado 1.pdf  
-    - assets/Sentidos.pdf
-    - assets/LunasJupiter.pdf
-    - assets/Vacunas.pdf
+    - assets/Las lunas de jupiter (Ciencias 4°).pdf
+    - assets/Historia Indigena (Español 1°).pdf
+    - assets/Los sentidos (Naturales 2°).pdf
+    - assets/Las vacunas (Ciencias 5°).pdf
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in

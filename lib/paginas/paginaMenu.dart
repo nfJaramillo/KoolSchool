@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:Kool_School/UI/botonUI.dart';
 import 'package:Kool_School/paginas/paginaQuiz.dart';
+import 'package:Kool_School/paginas/paginaFormulario.dart';
 import 'package:Kool_School/utils/pregunta.dart';
 import 'package:Kool_School/utils/quiz.dart';
 
@@ -243,6 +244,20 @@ class PaginaMenu extends StatelessWidget
         color: Colors.pink[300],
         child: Column(
           children: <Widget>[
+            Padding(
+              padding:  EdgeInsets.all(MediaQuery.of(context).size.width * .05), // Añade espacio entre los textos
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                new BotonUI(Colors.cyan[200], new Text("Añadir Quiz",
+                    style: TextStyle(
+                        fontSize: 75, fontWeight: FontWeight.bold)), () =>
+                    Navigator.of(context).push(new MaterialPageRoute(
+                        builder: (BuildContext context) => new PaginaFormulario()))),
+                // Boton quiz
+              ],
+            ),
             Padding(
               padding:  EdgeInsets.all(MediaQuery.of(context).size.width * .05), // Añade espacio entre los textos
             ),
