@@ -12,7 +12,7 @@ class PaginaMenu extends StatelessWidget
 
   Widget build(BuildContext context) {
     return new Material(
-        color: Colors.pink[300],
+        color: Colors.cyan[600],
         child: Column(
           children: <Widget>[
             Padding(
@@ -21,7 +21,7 @@ class PaginaMenu extends StatelessWidget
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                new BotonUI(Colors.cyan[200], new Text("Lectura 1",
+                new BotonUI(Colors.pink[600], new Text("Actividad 1: Historia Indígena",
                     style: TextStyle(
                         fontSize: 75, fontWeight: FontWeight.bold)), () =>
                     Navigator.of(context).push(new MaterialPageRoute(
@@ -35,7 +35,7 @@ class PaginaMenu extends StatelessWidget
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                new BotonUI(Colors.amber, new Text( "Lectura 2",
+                new BotonUI(Colors.pink[700], new Text( "Actividad 2: Lunas de Júpiter",
                     style: TextStyle(
                         fontSize: 75, fontWeight: FontWeight.bold)), () =>
                     Navigator.of(context).push(new MaterialPageRoute(
@@ -49,7 +49,7 @@ class PaginaMenu extends StatelessWidget
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                new BotonUI(Colors.purple[300], new Text( "Lectura 3",
+                new BotonUI(Colors.pink[800], new Text( "Actividad 3: Las Vacunas",
                     style: TextStyle(
                         fontSize: 75, fontWeight: FontWeight.bold)), () =>
                     Navigator.of(context).push(new MaterialPageRoute(
@@ -63,7 +63,7 @@ class PaginaMenu extends StatelessWidget
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                new BotonUI(Colors.blueAccent, new Text( "Lectura 4",
+                new BotonUI(Colors.pink[900], new Text( "Actividad 4: Los Sentidos",
                     style: TextStyle(
                         fontSize: 75, fontWeight: FontWeight.bold)), () =>
                     Navigator.of(context).push(new MaterialPageRoute(

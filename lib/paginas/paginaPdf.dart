@@ -29,6 +29,8 @@ class PaginaPdfEstado extends State<PaginaPdf>
   /// Lista de las rutas de los pdf
   List <String> _nomrbresPDF;
 
+  List<String> _nombresConOrtografia = ["Historia Indígena (Español 1°)", "Las Lunas de Júpiter (Ciencias 4°)", "Las Vacunas (Ciencias 5°)", "Los Sentidos (Naturales 2°)"  ];
+
   //----------------------------------------------
   // CONSTRUCTOR
   //----------------------------------------------
@@ -56,8 +58,9 @@ class PaginaPdfEstado extends State<PaginaPdf>
   /// Metodo que dibujara el visor de pdf junto con un titilo y ayuda de la libreria
   @override
   Widget build(BuildContext context) {
+    List<int> valuesForColor = [600, 700, 800, 900];
    return Scaffold(
-        backgroundColor: Colors.redAccent,
+        backgroundColor: Colors.purple[600],
         body: SingleChildScrollView(
           
           child: ListView(
@@ -67,13 +70,13 @@ class PaginaPdfEstado extends State<PaginaPdf>
                   children: [
 
                     for(int i =0; i<_nomrbresPDF.length;i++)
-                      //Padding(padding:  EdgeInsets.all(MediaQuery.of(context).size.width * .02)),
-                       new BotonUI3(Colors.amber, new Text(_nomrbresPDF[i].substring(7,_nomrbresPDF[i].length-4)), () => cargarPdf(i)),
+                      //Padding(padding:  EdgeInsets.all(MediaQuery.of(context).size.width * .02))
+                       new BotonUI3(Colors.amber[valuesForColor[i%4]], new Text(_nombresConOrtografia[i]), () => cargarPdf(i)),
            
                        Padding(
               padding:  EdgeInsets.all(MediaQuery.of(context).size.width * .015), // Añade espacio entre los textos
             ),
-                   new BotonUI2(Colors.limeAccent, new Text("Otros"), () => Navigator.of(context).push(new MaterialPageRoute( builder: (BuildContext context) => new FilePickerDemo()))),
+                   new BotonUI2(Colors.purple[900], new Text("Otros"), () => Navigator.of(context).push(new MaterialPageRoute( builder: (BuildContext context) => new FilePickerDemo()))),
                         Padding(
               padding:  EdgeInsets.all(MediaQuery.of(context).size.width * .015), // Añade espacio entre los textos
             ),
