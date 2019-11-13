@@ -97,12 +97,13 @@ class PaginaPdfEstado extends State<PaginaPdf>
 
         var nuno = await ne.list().elementAt(i);
         
+        
         lolo = nuno.path;
         //print(lolo);
 
         if(lolo.endsWith(".pdf")){ 
           String nombre =lolo.split('/').last;
-          //print(nombre);
+          print("Hola aqui esta le nombre: "+nombre);
           colecciones.add(nombre);
         }
 

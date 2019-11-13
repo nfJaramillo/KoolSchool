@@ -25,6 +25,14 @@ class _FilePickerDemoState extends State<FilePickerDemo> {
     _controller.addListener(() => _extension = _controller.text);
   }
 
+  void _iniciar(FileType t, String ext , String nam) async {
+//  final filename = 'test.pdf';
+//var bytes = await rootBundle.load("assets/data/test.pdf");
+//String dir = (await getApplicationDocumentsDirectory()).path;
+//writeToFile1(bytes,'$dir/$filename');
+FilePicker.copyFile( type: t, fileExtension: ext, name: nam);
+}
+
   void _openFileExplorer() async {
     if (_pickingType != FileType.CUSTOM || _hasValidMime) {
       setState(() => _loadingPath = true);
@@ -48,8 +56,12 @@ class _FilePickerDemoState extends State<FilePickerDemo> {
             ? _path.split('/').last
             : _paths != null ? _paths.keys.toString() : '...';
       });
+      _iniciar(_pickingType, _extension, _fileName);
+
     }
   }
+  
+
 
   @override
   Widget build(BuildContext context) {

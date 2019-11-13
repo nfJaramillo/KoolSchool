@@ -68,10 +68,7 @@ class PaginaNuevaLecturaEstado extends State<PaginaNuevaLectura>
                        Padding(
               padding:  EdgeInsets.all(MediaQuery.of(context).size.width * .015), // Añade espacio entre los textos
             ),
-                   new BotonUI2(Colors.limeAccent, new Text("Cargar"), () => Navigator.of(context).push(new MaterialPageRoute( builder: (BuildContext context) => new FilePickerDemo()))),
-                        Padding(
-              padding:  EdgeInsets.all(MediaQuery.of(context).size.width * .015), // Añade espacio entre los textos
-            ),
+                  
                   ],
                 ),
           ),
