@@ -42,7 +42,7 @@ class PaginaNuevaLecturaEstado extends State<PaginaNuevaLectura>
  
   cargarPdf(int pNumeroPdf) async {
     //darNumeroArchivos();
-    PDFDocument _documento = await PDFDocument.fromPath(widget.cons[pNumeroPdf]);
+    PDFDocument _documento = await PDFDocument.fromAsset(widget.cons[pNumeroPdf]);
     Navigator.of(context).push(new MaterialPageRoute(builder: (context) => new PaginaLecturaPdf(_documento,( () =>Navigator.of(context).push (new MaterialPageRoute(builder: (BuildContext context) => new PaginaQuiz(quiz[pNumeroPdf])))))));
 
     
