@@ -30,7 +30,7 @@ class _FilePickerDemoState extends State<FilePickerDemo> {
 //var bytes = await rootBundle.load("assets/data/test.pdf");
 //String dir = (await getApplicationDocumentsDirectory()).path;
 //writeToFile1(bytes,'$dir/$filename');
-FilePicker.copyFile( type: t, fileExtension: ext, name: nam);
+//FilePicker.copyFile( type: t, fileExtension: ext, name: nam);
 }
 
   void _openFileExplorer() async {
