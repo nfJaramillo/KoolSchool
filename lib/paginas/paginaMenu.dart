@@ -7,9 +7,11 @@ import 'package:Kool_School/utils/quiz.dart';
 
 class PaginaMenu extends StatelessWidget
 {
+  Quiz quiz1;
 
-  
-
+  Paginamenu(Quiz _quiz){
+    quiz1 = _quiz;
+  }
 
   Widget build(BuildContext context) {
     return new Material(
@@ -18,6 +20,35 @@ class PaginaMenu extends StatelessWidget
           children: <Widget>[
             Padding(
               padding:  EdgeInsets.all(MediaQuery.of(context).size.width * .05), // Añade espacio entre los textos
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                new BotonUI(Colors.pink[600], new Text("Añadir",
+                    style: TextStyle(
+                        fontSize: 75, fontWeight: FontWeight.bold)), () =>
+                    Navigator.of(context).push(new MaterialPageRoute(
+                        builder: (BuildContext context) => new PaginaFormulario()))),
+                // Boton quiz
+              ],
+            ),
+            Padding(
+              padding:  EdgeInsets.all(MediaQuery.of(context).size.width * .02), // Añade espacio entre los textos
+            ),
+            if( quiz1 != null)
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                new BotonUI(Colors.pink[600], new Text("Añadir",
+                    style: TextStyle(
+                        fontSize: 75, fontWeight: FontWeight.bold)), () =>
+                    Navigator.of(context).push(new MaterialPageRoute(
+                        builder: (BuildContext context) => new PaginaFormulario()))),
+                // Boton quiz
+              ],
+            ),
+            Padding(
+              padding:  EdgeInsets.all(MediaQuery.of(context).size.width * .02), // Añade espacio entre los textos
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
